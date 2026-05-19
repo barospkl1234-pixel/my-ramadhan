@@ -45,7 +45,7 @@ export default function HaidTrackerPage() {
     getDuration,
     getQadhaDays,
     totalMissedFasting,
-  } = useHaidData(user, isPWA);
+  } = useHaidData();
 
   const currentPhase = useCyclePhase(logs, activePeriod);
 

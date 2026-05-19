@@ -2,6 +2,7 @@
 
 import { Calendar, Trash2 } from 'lucide-react';
 import dayjs from 'dayjs';
+import { formatHijri, formatHijriShort } from '@/utils/formatHijri';
 
 /**
  * Menampilkan riwayat siklus haid dalam bentuk list card.
@@ -62,10 +63,10 @@ export default function HistoryList({
                   />
                   <div>
                     <p className='text-[11px] text-slate-400 dark:text-slate-500 font-bold mb-0.5 uppercase tracking-wider'>
-                      {dayjs(log.start_date).format('DD MMM')} —{' '}
+                      {formatHijriShort(log.start_date)} —{' '}
                       {isOngoing
                         ? 'Sekarang'
-                        : dayjs(log.end_date).format('DD MMM')}
+                        : formatHijriShort(log.end_date)}
                     </p>
                     <div className='flex items-center gap-3'>
                       <h4

@@ -60,6 +60,7 @@ export default function HaditsPage() {
     const fetchBooks = async () => {
       try {
         const res = await fetch(`${HADITS_API_BASE}/books`);
+        if (!res.ok) throw new Error(`Gagal fetch books: ${res.status}`);
         const json = await res.json();
         setBooks(json.data || []);
       } catch (err) {

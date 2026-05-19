@@ -16,13 +16,10 @@ import {
 } from 'lucide-react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
-import { useRouter } from 'next/navigation'; // Diubah jadi next/navigation agar aman di App Router
-import localforage from 'localforage';
+import { formatHijri } from '@/utils/formatHijri';
+import { getRamadhanDates } from '@/utils/ramadhan';
 
 dayjs.locale('id');
-
-const CURRENT_YEAR = dayjs().year();
-const RAMADHAN_START = dayjs(`${CURRENT_YEAR}-02-19`);
 
 const items = [
   {
@@ -91,7 +88,7 @@ const items = [
 ];
 
 export default function TrackerDrawer({ isOpen, onClose, onUpdate }) {
-  const router = useRouter();
+
 
   const [trackerData, setTrackerData] = useState({});
   const [customHabits, setCustomHabits] = useState([]);
@@ -205,10 +202,11 @@ export default function TrackerDrawer({ isOpen, onClose, onUpdate }) {
                 <p className='text-xs text-slate-400 dark:text-slate-500 capitalize'>
                   {(() => {
                     const today = dayjs();
-                    const ramadhanDay = today.diff(RAMADHAN_START, 'day') + 1;
+                    const { start: ramadhanStart } = getRamadhanDates();
+                    const ramadhanDay = today.diff(ramadhanStart, 'day') + 1;
                     if (ramadhanDay > 0 && ramadhanDay <= 30)
-                      return `${ramadhanDay} Ramadhan, ${today.format('DD-MM-YYYY')}`;
-                    return today.format('dddd, DD MM YYYY');
+                      return `${ramadhanDay} Ramadhan ${formatHijri(today.toDate())}`;
+                    return formatHijri(today.toDate(), { withWeekday: true });
                   })()}
                 </p>
               </div>

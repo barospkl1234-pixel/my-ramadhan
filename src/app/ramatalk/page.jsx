@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
+import { getRamadhanDates } from '@/utils/ramadhan';
 import {
   ArrowLeft,
   Send,
@@ -105,7 +106,7 @@ function RamatalkContent() {
           : currentHour < 18
             ? 'Sore'
             : 'Malam';
-    const ramadhanStart = dayjs('2026-02-19');
+    const { start: ramadhanStart } = getRamadhanDates();
     const dayDiff = now.diff(ramadhanStart, 'day') + 1;
     const currentDay = dayDiff > 0 ? dayDiff : 0;
 

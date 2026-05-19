@@ -1,5 +1,6 @@
 import { CheckCircle, Plus } from 'lucide-react';
 import dayjs from 'dayjs';
+import { formatHijri } from '@/utils/formatHijri';
 
 /**
  * Card status utama: menampilkan status SEDANG HAID atau SUCI
@@ -54,7 +55,7 @@ export default function StatusCard({
               <CheckCircle size={18} /> Tandai Selesai
             </button>
             <p className='text-[10px] text-pink-200 mt-4 opacity-80'>
-              Dimulai: {dayjs(activePeriod.start_date).format('DD MMMM YYYY')}
+              Dimulai: {formatHijri(activePeriod.start_date)}
             </p>
           </div>
         ) : (

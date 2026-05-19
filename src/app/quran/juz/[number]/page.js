@@ -94,6 +94,7 @@ export default function JuzReader() {
       await Promise.all(
         surahIds.map(async (id) => {
           const res = await fetch(`https://equran.id/api/v2/surat/${id}`);
+          if (!res.ok) throw new Error(`Gagal fetch surah: ${res.status}`);
           const json = await res.json();
           surahDataMap[id] = json.data;
         }),

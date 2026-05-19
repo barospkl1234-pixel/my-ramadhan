@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import localforage from 'localforage';
 import dayjs from 'dayjs';
+import { getRamadhanDates } from '@/utils/ramadhan';
 
 export function useHaidData() {
   const [logs, setLogs] = useState([]);
@@ -101,9 +102,7 @@ export function useHaidData() {
   const getQadhaDays = useCallback((startDate, endDate) => {
     if (!startDate) return 0;
 
-    // Rentang Ramadhan
-    const ramadhanStart = dayjs('2026-02-19');
-    const ramadhanEnd = dayjs('2026-03-20');
+    const { start: ramadhanStart, end: ramadhanEnd } = getRamadhanDates();
     const start = dayjs(startDate).startOf('day');
     const end = endDate ? dayjs(endDate).endOf('day') : dayjs().endOf('day');
 

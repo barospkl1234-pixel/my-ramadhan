@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getHijriYearNumber } from '@/utils/ramadhan';
 
 export async function POST(request) {
   try {
@@ -15,9 +16,10 @@ export async function POST(request) {
     const { timeString, greeting, day, journalContext, mode } = context || {};
 
     // ─── Ramadhan context ───────────────────────────────────────────────────────
+    const hijriYear = getHijriYearNumber();
     const ramadhanContext =
       day > 0
-        ? `Sekarang adalah hari ke-${day} Ramadhan 1447 H.${
+        ? `Sekarang adalah hari ke-${day} Ramadhan ${hijriYear} H.${
             day >= 21
               ? ' Ini adalah 10 malam terakhir Ramadhan — waktu paling istimewa.'
               : day >= 11

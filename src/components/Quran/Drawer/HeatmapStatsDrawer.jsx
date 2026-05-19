@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X, Clock, CalendarDays } from 'lucide-react';
 import { getReadingHistory } from '@/lib/quranTrackerService';
+import { formatHijriMonth } from '@/utils/formatHijri';
 
 const formatTime = (seconds) => {
   if (!seconds) return '0 menit';
@@ -29,10 +30,7 @@ export default function HeatmapStatsDrawer({ isOpen, onClose }) {
   const year = date.getFullYear();
   const month = date.getMonth();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const monthName = date.toLocaleDateString('id-ID', {
-    month: 'long',
-    year: 'numeric',
-  });
+  const monthName = formatHijriMonth(date);
 
   // Gradasi warna berdasarkan durasi membaca
   const getColor = (seconds) => {

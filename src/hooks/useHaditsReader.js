@@ -52,6 +52,7 @@ const useHaditsReader = ({
       const res = await fetch(
         `${HADITS_API_BASE}/books/${bookId}?range=${start}-${end}`,
       );
+      if (!res.ok) throw new Error(`Gagal fetch hadits: ${res.status}`);
       const json = await res.json();
       setHadiths(json.data.hadiths || []);
     } catch (err) {

@@ -16,6 +16,7 @@ import {
 import { moods } from '@/data/journalPrompts';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
+import { formatHijri } from '@/utils/formatHijri';
 import localforage from 'localforage';
 import DrawerPanel from '@/components/_shared/DrawerPanel';
 
@@ -222,9 +223,7 @@ export default function JurnalPage() {
                             {cat?.title || 'Catatan'}
                           </p>
                           <p className='text-xs text-slate-400 dark:text-slate-500 font-medium'>
-                            {dayjs(entry.created_at).format(
-                              'DD MMM YYYY, HH:mm',
-                            )}
+                            {`${formatHijri(entry.created_at, { format: 'short' })}, ${dayjs(entry.created_at).format('HH:mm')}`}
                           </p>
                         </div>
                       </div>
@@ -276,9 +275,7 @@ export default function JurnalPage() {
                   {selectedEntry.title}
                 </h3>
                 <p className='text-xs text-slate-500 dark:text-slate-400 font-medium'>
-                  {dayjs(selectedEntry.created_at).format(
-                    'DD MMMM YYYY, HH:mm',
-                  )}
+                  {`${formatHijri(selectedEntry.created_at)}, ${dayjs(selectedEntry.created_at).format('HH:mm')}`}
                 </p>
               </div>
             </div>

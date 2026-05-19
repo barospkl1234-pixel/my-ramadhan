@@ -20,14 +20,12 @@ export default function useUserProfile() {
   const loadProfile = async () => {
     try {
       setLoading(true);
-      const storedProfile = await localforage.getItem(
-        'myramadhan_user_profile',
-      );
+      const storedProfile = await localforage.getItem('user_profile');
 
       if (storedProfile) {
         setProfile(storedProfile);
       } else {
-        await localforage.setItem('myramadhan_user_profile', profile);
+        await localforage.setItem('user_profile', profile);
       }
     } catch (error) {
       console.error('Gagal memuat profil lokal:', error);
@@ -39,7 +37,7 @@ export default function useUserProfile() {
   const updateProfile = async (newProfileData) => {
     try {
       const updatedProfile = { ...profile, ...newProfileData };
-      await localforage.setItem('myramadhan_user_profile', updatedProfile);
+      await localforage.setItem('user_profile', updatedProfile);
       setProfile(updatedProfile);
       return { success: true };
     } catch (error) {

@@ -80,6 +80,7 @@ export default function SurahReader() {
       setLoading(true);
       try {
         const res = await fetch(`https://equran.id/api/v2/surat/${number}`);
+        if (!res.ok) throw new Error(`Gagal fetch surah: ${res.status}`);
         const json = await res.json();
         setSurah(json.data);
       } catch (err) {

@@ -1,9 +1,9 @@
 import { Sun, BookOpen, Heart, Coffee } from 'lucide-react';
-import dayjs from 'dayjs';
+import { getRamadhanDates } from '@/utils/ramadhan';
 
-/** Rentang bulan Ramadhan untuk kalkulasi qadha */
-export const RAMADHAN_START = dayjs('2026-02-19');
-export const RAMADHAN_END = dayjs('2026-03-20');
+const ramadhan = getRamadhanDates();
+export const RAMADHAN_START = ramadhan.start;
+export const RAMADHAN_END = ramadhan.end;
 
 /** Daftar amalan pengganti ibadah saat haid */
 export const AMALAN_HAID = [

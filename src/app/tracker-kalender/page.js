@@ -4,16 +4,25 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
+import { formatHijri } from '@/utils/formatHijri';
+import { getHijriYearNumber, getRamadhanDates } from '@/utils/ramadhan';
 import { ArrowLeft, Target, Plus, X, Trash2, Check } from 'lucide-react';
 import localforage from 'localforage';
 import { motion, AnimatePresence } from 'framer-motion';
 
 dayjs.locale('id');
 
-const CURRENT_YEAR = dayjs().year();
-const RAMADHAN_START = dayjs(`${CURRENT_YEAR}-02-19`);
-const RAMADHAN_END = dayjs(`${CURRENT_YEAR}-03-21`);
 const RAMADHAN_DAYS = 30;
+
+function useRamadhanDates() {
+  return React.useMemo(() => {
+    const { start, end } = getRamadhanDates();
+    const dates = Array.from({ length: RAMADHAN_DAYS }, (_, i) =>
+      start.add(i, 'day'),
+    );
+    return { start, end, dates, firstDayOfWeek: start.day() };
+  }, []);
+}
 
 const TRACKER_KEYS = [
   'is_puasa',
@@ -39,9 +48,7 @@ const TRACKER_LABELS = {
   sedekah: 'Sedekah',
 };
 
-const RAMADHAN_DATES = Array.from({ length: RAMADHAN_DAYS }, (_, i) =>
-  RAMADHAN_START.add(i, 'day'),
-);
+
 
 const getProgressColor = (percent) => {
   if (percent === 0)
@@ -65,6 +72,7 @@ const getBarColor = (percent) => {
 
 export default function TrackerKalender() {
   const router = useRouter();
+  const { start: ramadhanStart, dates: ramadhanDates, firstDayOfWeek } = useRamadhanDates();
   const [allData, setAllData] = useState({});
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(
@@ -162,7 +170,7 @@ export default function TrackerKalender() {
   };
 
   const today = dayjs().format('YYYY-MM-DD');
-  const totalDaysPassed = RAMADHAN_DATES.filter(
+  const totalDaysPassed = ramadhanDates.filter(
     (d) => !d.isAfter(dayjs(), 'day'),
   ).length;
   const totalCompleted = Object.values(allData).reduce((acc, row) => {
@@ -173,16 +181,15 @@ export default function TrackerKalender() {
     );
     return acc + dComp + cComp;
   }, 0);
-  const perfectDays = RAMADHAN_DATES.filter((date) => {
+  const perfectDays = ramadhanDates.filter((date) => {
     if (date.isAfter(dayjs(), 'day')) return false;
     const p = getProgress(date.format('YYYY-MM-DD'));
     return p.total > 0 && p.percent === 100;
   }).length;
 
-  const firstDayOfWeek = RAMADHAN_START.day();
   const gridCells = [
     ...Array.from({ length: firstDayOfWeek }, () => null),
-    ...RAMADHAN_DATES,
+    ...ramadhanDates,
   ];
 
   return (
@@ -210,7 +217,7 @@ export default function TrackerKalender() {
               Kalender Ramadhan
             </h1>
             <p className='text-xs md:text-sm text-slate-400 dark:text-slate-500'>
-              19 Februari – 21 Maret {CURRENT_YEAR} · 30 Hari
+              1 Ramadhan – 30 Ramadhan {getHijriYearNumber()} H · 30 Hari
             </p>
           </div>
         </header>
@@ -244,7 +251,7 @@ export default function TrackerKalender() {
             <div className='bg-white dark:bg-slate-900 rounded-[2rem] p-5 md:p-8 shadow-sm border border-slate-100 dark:border-slate-800 flex-1'>
               <div className='mb-4 md:mb-6'>
                 <h2 className='font-bold text-slate-800 dark:text-slate-100 text-base md:text-lg'>
-                  30 Hari Ramadhan 1447 H
+                  30 Hari Ramadhan {getHijriYearNumber()} H
                 </h2>
                 <p className='text-xs md:text-sm text-slate-400 dark:text-slate-500 mt-0.5'>
                   Ketuk tanggal untuk lihat detail ibadah
@@ -279,7 +286,7 @@ export default function TrackerKalender() {
                     const isFuture = date.isAfter(dayjs(), 'day');
                     const isToday = dateKey === today;
                     const isSelected = selectedDate === dateKey;
-                    const ramadhanDay = date.diff(RAMADHAN_START, 'day') + 1;
+                    const ramadhanDay = date.diff(ramadhanStart, 'day') + 1;
                     const progress = getProgress(dateKey);
 
                     return (
@@ -354,12 +361,12 @@ export default function TrackerKalender() {
                         <div>
                           <p className='text-[10px] md:text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500 font-bold mb-0.5'>
                             Hari ke-
-                            {dayjs(selectedDate).diff(RAMADHAN_START, 'day') +
+                            {dayjs(selectedDate).diff(ramadhanStart, 'day') +
                               1}{' '}
                             Ramadhan
                           </p>
                           <h3 className='font-bold text-lg md:text-xl text-slate-800 dark:text-slate-100 capitalize'>
-                            {dayjs(selectedDate).format('dddd, DD MMMM YYYY')}
+                            {formatHijri(selectedDate, { withWeekday: true })}
                           </h3>
                           <p className='text-xs md:text-sm text-slate-400 dark:text-slate-500 mt-1'>
                             {progress.completed} dari {progress.total} target

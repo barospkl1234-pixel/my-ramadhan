@@ -96,7 +96,7 @@ export default function MyRamadhanHome() {
     if (user) {
       fetchTrackerSummary();
     }
-  }, [user]);
+  }, [user, fetchTrackerSummary]);
 
   const dailyTopic =
     studyMaterials.find((m) => m.day === hijriDay) || studyMaterials[0];

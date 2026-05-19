@@ -12,7 +12,7 @@ export const StorageService = {
   // =====================================================================
   async getProfile() {
     return (
-      (await localforage.getItem('profile')) || {
+      (await localforage.getItem('user_profile')) || {
         name: 'Hamba Allah',
         location_city: 'Jakarta',
         app_theme: 'light',
@@ -23,7 +23,7 @@ export const StorageService = {
   async saveProfile(updateData) {
     const currentProfile = await this.getProfile();
     const newProfile = { ...currentProfile, ...updateData };
-    await localforage.setItem('profile', newProfile);
+    await localforage.setItem('user_profile', newProfile);
     return newProfile;
   },
 
@@ -80,12 +80,12 @@ export const StorageService = {
   // =====================================================================
   async getHaidData() {
     return (
-      (await localforage.getItem('haid_data')) || { logs: [], settings: {} }
+      (await localforage.getItem('haid_logs')) || { logs: [], settings: {} }
     );
   },
 
   async saveHaidData(haidData) {
-    await localforage.setItem('haid_data', haidData);
+    await localforage.setItem('haid_logs', haidData);
     return haidData;
   },
 
@@ -108,30 +108,28 @@ export const StorageService = {
   // 6. MESIN SINKRONISASI P2P (WEBRTC) & BACKUP
   // =====================================================================
 
-  // Mengambil SEMUA data dari HP untuk dikirim via QR/File
   async getAllSyncData() {
     return {
-      profile: await localforage.getItem('profile'),
-      trackers: await localforage.getItem('trackers'),
-      journals: await localforage.getItem('journals'),
-      haid_data: await localforage.getItem('haid_data'),
+      profile: await localforage.getItem('user_profile'),
+      trackers: await localforage.getItem('ramadhan_tracker'),
+      journals: await localforage.getItem('journal_entries'),
+      haid_logs: await localforage.getItem('haid_logs'),
       user_meta: await localforage.getItem('user_meta'),
       last_sync: new Date().toISOString(),
     };
   },
 
-  // Menerima data dari HP lain dan MENIMPA data lokal
   async importSyncData(syncData) {
     if (!syncData) throw new Error('Data sinkronisasi kosong');
 
     if (syncData.profile)
-      await localforage.setItem('profile', syncData.profile);
+      await localforage.setItem('user_profile', syncData.profile);
     if (syncData.trackers)
-      await localforage.setItem('trackers', syncData.trackers);
+      await localforage.setItem('ramadhan_tracker', syncData.trackers);
     if (syncData.journals)
-      await localforage.setItem('journals', syncData.journals);
-    if (syncData.haid_data)
-      await localforage.setItem('haid_data', syncData.haid_data);
+      await localforage.setItem('journal_entries', syncData.journals);
+    if (syncData.haid_logs)
+      await localforage.setItem('haid_logs', syncData.haid_logs);
     if (syncData.user_meta)
       await localforage.setItem('user_meta', syncData.user_meta);
 
@@ -142,11 +140,10 @@ export const StorageService = {
   // 7. FUNGSI RESET / DANGER ZONE
   // =====================================================================
   async clearAllData() {
-    await localforage.removeItem('trackers');
-    await localforage.removeItem('journals');
-    await localforage.removeItem('haid_data');
+    await localforage.removeItem('ramadhan_tracker');
+    await localforage.removeItem('journal_entries');
+    await localforage.removeItem('haid_logs');
     await localforage.removeItem('user_meta');
-    // Profile sengaja tidak dihapus agar user tidak perlu seting lokasi & tema dari awal
     return true;
   },
 };

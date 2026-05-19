@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import localforage from 'localforage';
 import dayjs from 'dayjs';
+import { getRamadhanDates } from '@/utils/ramadhan';
 
 export default function useTrackerSummary() {
   const [summary, setSummary] = useState({
@@ -25,8 +26,7 @@ export default function useTrackerSummary() {
       const haidLogs = (await localforage.getItem('haid_logs')) || [];
 
       const today = dayjs();
-      const ramadhanStart = dayjs('2026-02-19');
-      const ramadhanEnd = dayjs('2026-03-20');
+      const { start: ramadhanStart, end: ramadhanEnd } = getRamadhanDates();
 
       let haidMissedFasts = 0;
       haidLogs.forEach((log) => {

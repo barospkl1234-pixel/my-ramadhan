@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
+import { formatHijri } from '@/utils/formatHijri';
 
 import localforage from 'localforage';
 import useUser from '@/hooks/useUser';
@@ -108,6 +109,9 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
     setIsLoadingSchedule(true);
     try {
       const res = await fetch(`/api/schedule?city=${encodeURIComponent(city)}`);
+      if (!res.ok) {
+        throw new Error(`Gagal memuat jadwal: ${res.status}`);
+      }
       const data = await res.json();
       const now = dayjs();
 
@@ -344,7 +348,7 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                   Jadwal Hari Ini
                 </p>
                 <p className='text-[10px] font-bold text-slate-500 dark:text-slate-400 bg-slate-200/60 dark:bg-slate-800 px-2 py-1 rounded-md'>
-                  {currentTime.format('DD MMM YYYY')}
+                  {formatHijri(currentTime.toDate())}
                 </p>
               </div>
 
@@ -451,7 +455,7 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                         >
                         <div className='flex-1'>
                           <p className='text-xs font-bold text-slate-800 dark:text-slate-100'>
-                            {dayjs(day.isoDate).format('dddd, DD MMM')}
+                            {formatHijri(day.isoDate, { withWeekday: true, format: 'short' })}
                           </p>
                         </div>
                         <div className='flex items-center gap-4 text-xs font-bold'>

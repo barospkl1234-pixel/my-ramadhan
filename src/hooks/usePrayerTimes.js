@@ -20,7 +20,7 @@ export default function usePrayerTimes() {
       const now = dayjs();
 
       const todayData = data?.schedule?.find((item) =>
-        dayjs(item.isoDate).isSame(now, 'day'),
+        dayjs(item.isoDate),
       );
       if (todayData?.timings) {
         setPrayerTimes(todayData.timings);

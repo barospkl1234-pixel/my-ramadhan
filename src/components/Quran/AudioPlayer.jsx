@@ -21,16 +21,19 @@ const AudioPlayer = ({ currentAyat, label, onPrev, onNext, onClose }) => {
   const [duration, setDuration] = useState(0);
   const [curTime, setCurTime] = useState(0);
 
-  // Ganti sumber audio & auto-play saat ayat berubah
   useEffect(() => {
     if (!currentAyat?.audio?.['05']) return;
-    if (audioRef.current) {
-      audioRef.current.src = currentAyat.audio['05'];
-      audioRef.current
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch(() => setIsPlaying(false));
-    }
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.pause();
+    audio.src = currentAyat.audio['05'];
+    audio.play()
+      .then(() => setIsPlaying(true))
+      .catch(() => setIsPlaying(false));
+    return () => {
+      audio.pause();
+      audio.src = '';
+    };
   }, [currentAyat]);
 
   const togglePlay = () => {
@@ -132,6 +135,7 @@ const AudioPlayer = ({ currentAyat, label, onPrev, onNext, onClose }) => {
           onTimeUpdate={handleTimeUpdate}
           onLoadedMetadata={(e) => setDuration(e.target.duration)}
           onEnded={onNext}
+          onError={() => setIsPlaying(false)}
         />
       </div>
     </div>
