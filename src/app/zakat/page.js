@@ -28,7 +28,7 @@ export default function ZakatPage() {
     <div className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 text-slate-800 dark:text-slate-200 pb-24 transition-colors duration-300'>
       {/* Ambient background blur */}
       <div className='fixed inset-0 pointer-events-none -z-10 overflow-hidden'>
-        <div className='absolute -top-40 -right-40 w-96 h-96 bg-blue-100/40 dark:bg-blue-900/20 rounded-full blur-3xl' />
+        <div className='absolute -top-40 -right-40 w-96 h-96 bg-blue-100/40 dark:bg-primary-bg rounded-full blur-3xl' />
         <div className='absolute bottom-0 -left-20 w-80 h-80 bg-indigo-100/30 dark:bg-indigo-900/20 rounded-full blur-3xl' />
       </div>
 
@@ -60,7 +60,7 @@ export default function ZakatPage() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          className='bg-gradient-to-br from-[#1e3a8a] via-[#1e3a8a] to-indigo-700 dark:from-blue-800 dark:via-blue-800 dark:to-indigo-800 rounded-3xl p-6 md:p-8 text-white relative overflow-hidden mb-6'
+          className='bg-gradient-to-br from-primary via-primary to-indigo-700 dark:from-primary-dark dark:via-primary-dark dark:to-primary-dark rounded-3xl p-6 md:p-8 text-white relative overflow-hidden mb-6'
         >
           <div className='absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_60%)]' />
           <div className='absolute -bottom-8 -right-8 w-32 h-32 md:w-48 md:h-48 bg-white/5 rounded-full' />
@@ -103,8 +103,8 @@ export default function ZakatPage() {
             icon='💰'
             title='Zakat Maal (Harta)'
             subtitle='Tabungan, investasi & piutang selama 1 tahun'
-            accentClass='text-[#1e3a8a] dark:text-blue-400'
-            bgClass='bg-blue-50 dark:bg-blue-900'
+            accentClass='text-primary dark:text-primary'
+            bgClass='bg-blue-50 dark:bg-primary-bg'
             isDesktop={isDesktop}
           >
             <ZakatMaal data={calc.maal} />

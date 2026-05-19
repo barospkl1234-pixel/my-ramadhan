@@ -40,7 +40,7 @@ export default function StudyDetail() {
       {/* --- HEADER IMAGE & NAV --- */}
       <div className='relative h-64 bg-indigo-900 rounded-b-[3rem] overflow-hidden shadow-xl shadow-indigo-100'>
         {/* Abstract Background Decoration */}
-        <div className='absolute inset-0 bg-gradient-to-br from-[#1e3a8a] via-[#312e81] to-[#4c1d95]' />
+        <div className='absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary-dark' />
         <div className='absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
         <div className='absolute bottom-0 left-0 w-48 h-48 bg-amber-400/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2' />
 
@@ -95,13 +95,13 @@ export default function StudyDetail() {
 
           {/* Quran/Hadith Quote Box */}
           <div className='my-8 relative bg-indigo-50 rounded-2xl p-6 border border-indigo-100'>
-            <div className='absolute -top-3 left-6 bg-[#1e3a8a] text-white p-1.5 rounded-lg shadow-sm'>
+            <div className='absolute -top-3 left-6 bg-primary text-white p-1.5 rounded-lg shadow-sm'>
               <span className='text-xl leading-none'>❝</span>
             </div>
-            <p className='text-[#1e3a8a] font-medium text-lg leading-relaxed italic mb-3 pt-3'>
+            <p className='text-primary font-medium text-lg leading-relaxed italic mb-3 pt-3'>
               {material.quran.text}
             </p>
-            <p className='text-[#1e3a8a] text-xs font-bold uppercase tracking-wider text-right'>
+            <p className='text-primary text-xs font-bold uppercase tracking-wider text-right'>
               — {material.quran.source}
             </p>
           </div>

@@ -49,7 +49,7 @@ export const CYCLE_PHASES = {
     phase: 'Fase Folikuler',
     desc: 'Energi dan mood sedang meningkat drastis! Waktu yang sangat tepat untuk produktif beraktivitas dan ibadah ekstra.',
     color: 'text-blue-600 dark:text-blue-400',
-    bg: 'bg-blue-50 dark:bg-blue-900/30',
+    bg: 'bg-blue-50 dark:bg-primary-bg',
     bar: 'bg-blue-500 dark:bg-blue-500',
   },
   OVULATION: {

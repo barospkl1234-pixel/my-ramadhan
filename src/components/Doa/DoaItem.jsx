@@ -95,7 +95,7 @@ const DoaItem = ({
                 className={`inline-block px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider ${
                   isBilal
                     ? 'bg-rose-100 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400'
-                    : 'bg-blue-100 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400'
+                    : 'bg-blue-100 dark:bg-primary-bg text-blue-600 dark:text-blue-400'
                 }`}
               >
                 {isBilal ? 'Bilal' : 'Jamaah'}

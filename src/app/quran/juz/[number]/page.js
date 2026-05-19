@@ -157,8 +157,8 @@ export default function JuzReader() {
     const el = document.getElementById(`ayat-${jumpSurah}-${jumpAyat}`);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      el.classList.add('ring-4', 'ring-[#1e3a8a]');
-      setTimeout(() => el.classList.remove('ring-4', 'ring-[#1e3a8a]'), 2000);
+      el.classList.add('ring-4', 'ring-primary');
+      setTimeout(() => el.classList.remove('ring-4', 'ring-primary'), 2000);
     } else {
       alert('Ayat tidak ditemukan di Juz ini.');
     }
@@ -194,7 +194,7 @@ export default function JuzReader() {
 
   return (
     <div
-      className='min-h-screen bg-[#F6F9FC] dark:bg-slate-900 text-slate-800 dark:text-slate-100 selection:bg-blue-200 dark:selection:bg-blue-900'
+      className='min-h-screen bg-[#F6F9FC] dark:bg-slate-900 text-slate-800 dark:text-slate-100 selection:bg-primary-bg dark:selection:bg-primary-bg'
       style={{ paddingBottom: showPlayer ? '160px' : '100px' }}
     >
       <JuzHeader
@@ -296,7 +296,7 @@ export default function JuzReader() {
             {Number(number) > 1 && (
               <button
                 onClick={() => router.push(`/quran/juz/${Number(number) - 1}`)}
-                className='flex-1 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 text-sm md:text-base font-bold text-slate-600 dark:text-slate-300 hover:border-[#1e3a8a] dark:hover:border-blue-600 hover:text-[#1e3a8a] dark:hover:text-blue-400 transition-all flex items-center justify-center gap-2'
+                className='flex-1 py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-600 text-sm md:text-base font-bold text-slate-600 dark:text-slate-300 hover:border-primary dark:hover:border-blue-600 hover:text-primary dark:hover:text-blue-400 transition-all flex items-center justify-center gap-2'
               >
                 <ArrowLeft size={18} /> Juz {Number(number) - 1}
               </button>
@@ -304,7 +304,7 @@ export default function JuzReader() {
             {Number(number) < 30 && (
               <button
                 onClick={() => router.push(`/quran/juz/${Number(number) + 1}`)}
-                className='flex-1 py-4 rounded-2xl bg-[#1e3a8a] dark:bg-blue-700 text-white text-sm md:text-base font-bold hover:bg-[#162d6e] dark:hover:bg-blue-800 transition-all flex items-center justify-center gap-2'
+                className='flex-1 py-4 rounded-2xl bg-primary dark:bg-primary text-white text-sm md:text-base font-bold hover:bg-[#162d6e] dark:hover:bg-primary-dark transition-all flex items-center justify-center gap-2'
               >
                 Juz {Number(number) + 1}
                 <ArrowLeft size={18} className='rotate-180' />
@@ -340,10 +340,10 @@ export default function JuzReader() {
               </>
             ) : (
               <>
-                <div className='w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner'>
+                <div className='w-20 h-20 bg-blue-100 dark:bg-primary-bg rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner'>
                   <BookOpen
                     size={40}
-                    className='text-[#2563eb] dark:text-blue-400'
+                    className='text-primary dark:text-blue-400'
                   />
                 </div>
                 <h2 className='text-xl font-bold text-slate-800 dark:text-slate-100 mb-2'>
@@ -366,7 +366,7 @@ export default function JuzReader() {
                 Doa Setelah Membaca Al-Quran
                 <span className='w-6 md:w-8 h-px bg-slate-200 dark:bg-slate-700'></span>
               </p>
-              <p className='font-arabic text-xl md:text-2xl text-right leading-loose text-[#2563eb] dark:text-blue-400 mb-3 mt-1'>
+              <p className='font-arabic text-xl md:text-2xl text-right leading-loose text-primary dark:text-blue-400 mb-3 mt-1'>
                 اللَّهُمَّ ارْحَمْنِي بِالْقُرْآنِ وَاجْعَلْهُ لِي إِمَامًا
                 وَنُورًا وَهُدًى وَرَحْمَةً
               </p>
@@ -385,7 +385,7 @@ export default function JuzReader() {
                 setShowSessionEnd(false);
                 router.push('/quran');
               }}
-              className='w-full py-3.5 bg-[#2563eb] dark:bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-sm'
+              className='w-full py-3.5 bg-primary dark:bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-colors shadow-sm'
             >
               Selesai & Tutup
             </button>

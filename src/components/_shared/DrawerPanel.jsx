@@ -9,7 +9,7 @@ const DrawerPanel = ({
   title,
   icon: Icon,
   children,
-  titleColor = 'text-[#1e3a8a] dark:text-blue-400',
+  titleColor = 'text-primary dark:text-primary',
   hideFooterButton = false,
 }) => {
   const panelRef = useRef(null);

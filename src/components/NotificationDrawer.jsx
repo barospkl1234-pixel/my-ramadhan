@@ -12,7 +12,7 @@ const iconMap = {
 };
 
 const bgMap = {
-  info: 'bg-blue-50 border-blue-100 dark:bg-blue-900/20 dark:border-blue-800',
+  info: 'bg-blue-50 border-blue-100 dark:bg-primary-bg dark:border-blue-800',
   special:
     'bg-amber-50 border-amber-100 dark:bg-amber-900/20 dark:border-amber-800',
   prayer:
@@ -89,7 +89,7 @@ export default function NotificationDrawer({ isOpen, onClose, notifications }) {
                 <h2 className='font-bold text-xl text-slate-800 dark:text-slate-100 flex items-center gap-2'>
                   <Bell
                     size={20}
-                    className='text-[#1e3a8a] dark:text-blue-400'
+                    className='text-primary dark:text-primary'
                   />{' '}
                   Notifikasi
                 </h2>

@@ -79,7 +79,7 @@ export default function ZakatMaal({ data }) {
             <div className='flex justify-between text-xs md:text-sm'>
               <span className='text-slate-400 dark:text-slate-500'>Status</span>
               <span
-                className={`font-bold ${result.wajib ? 'text-[#1e3a8a] dark:text-blue-400' : 'text-slate-400 dark:text-slate-500'}`}
+                className={`font-bold ${result.wajib ? 'text-primary dark:text-primary' : 'text-slate-400 dark:text-slate-500'}`}
               >
                 {result.wajib ? '✓ Wajib Zakat' : '✗ Belum Nisab'}
               </span>

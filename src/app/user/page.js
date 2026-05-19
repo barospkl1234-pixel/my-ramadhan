@@ -6,6 +6,7 @@ import { ArrowLeft, Smartphone } from 'lucide-react';
 import localforage from 'localforage';
 
 import useUser from '@/hooks/useUser';
+import { applyTheme } from '@/hooks/useTheme';
 
 import UserProfileCard from '@/components/User/UserProfileCard';
 import PreferensiMenuSection from '@/components/User/PreferensiMenuSection';
@@ -18,8 +19,7 @@ import DrawerTema from '@/components/User/Drawer/DrawerTema';
 import DrawerBantuan from '@/components/User/Drawer/DrawerBantuan';
 import DrawerPrivasi from '@/components/User/Drawer/DrawerPrivasi';
 import DrawerTentang from '@/components/User/Drawer/DrawerTentang';
-import DrawerPengembang from '@/components/User/Drawer/DrawerPengembang';
-import DrawerDonasi from '@/components/User/Drawer/DrawerDonasi';
+
 import DrawerSyncDevice from '@/components/User/Drawer/DrawerSyncDevice';
 import DrawerGithub from '@/components/User/Drawer/DrawerGithub';
 
@@ -31,8 +31,6 @@ const DRAWERS = {
   BANTUAN: 'bantuan',
   PRIVASI: 'privasi',
   TENTANG: 'tentang',
-  PENGEMBANG: 'pengembang',
-  DONASI: 'donasi',
   SYNC_DEVICE: 'sync_device',
   GITHUB: 'github',
 };
@@ -66,11 +64,7 @@ export default function UserProfile() {
   const toggleTheme = (newTheme) => {
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    applyTheme(newTheme);
   };
 
   // Function untuk mengonversi foto profil menjadi base64
@@ -156,7 +150,7 @@ export default function UserProfile() {
   if (loading) {
     return (
       <div className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 flex justify-center items-center'>
-        <div className='w-8 h-8 border-4 border-[#1e3a8a] dark:border-blue-400 border-t-transparent rounded-full animate-spin' />
+        <div className='w-8 h-8 border-4 border-primary dark:border-blue-400 border-t-transparent rounded-full animate-spin' />
       </div>
     );
   }
@@ -174,7 +168,7 @@ export default function UserProfile() {
               className='text-slate-600 dark:text-slate-300'
             />
           </button>
-          <h1 className='font-bold text-xl text-[#1e3a8a] dark:text-white'>
+          <h1 className='font-bold text-xl text-primary dark:text-white'>
             User Profile
           </h1>
         </div>
@@ -199,7 +193,7 @@ export default function UserProfile() {
             <div className='w-full'>
               <button
                 onClick={() => setActiveDrawer(DRAWERS.SYNC_DEVICE)}
-                className='w-full py-4 bg-[#1e3a8a] text-white font-bold rounded-2xl shadow-md hover:bg-blue-800 transition-all flex items-center justify-center gap-2'
+                className='w-full py-4 bg-primary text-white font-bold rounded-2xl shadow-md hover:bg-primary-dark transition-all flex items-center justify-center gap-2'
               >
                 <Smartphone size={18} /> Sinkronisasi Perangkat (P2P)
               </button>
@@ -211,8 +205,6 @@ export default function UserProfile() {
               onOpenBantuan={() => setActiveDrawer(DRAWERS.BANTUAN)}
               onOpenPrivasi={() => setActiveDrawer(DRAWERS.PRIVASI)}
               onOpenTentang={() => setActiveDrawer(DRAWERS.TENTANG)}
-              onOpenPengembang={() => setActiveDrawer(DRAWERS.PENGEMBANG)}
-              onOpenDonasi={() => setActiveDrawer(DRAWERS.DONASI)}
               onOpenGithub={() => setActiveDrawer(DRAWERS.GITHUB)}
             />
           </div>
@@ -268,14 +260,7 @@ export default function UserProfile() {
         open={activeDrawer === DRAWERS.TENTANG}
         onClose={closeDrawer}
       />
-      <DrawerPengembang
-        open={activeDrawer === DRAWERS.PENGEMBANG}
-        onClose={closeDrawer}
-      />
-      <DrawerDonasi
-        open={activeDrawer === DRAWERS.DONASI}
-        onClose={closeDrawer}
-      />
+
       <DrawerSyncDevice
         open={activeDrawer === DRAWERS.SYNC_DEVICE}
         onClose={closeDrawer}

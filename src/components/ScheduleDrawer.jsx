@@ -223,10 +223,10 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                 </p>
                 <button
                   onClick={() => setIsPickerOpen(!isPickerOpen)}
-                  className={`w-full flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-2xl border transition-all group ${isPickerOpen ? 'border-[#1e3a8a] dark:border-blue-500 shadow-md' : 'border-slate-200 dark:border-slate-700 shadow-sm hover:border-[#1e3a8a] dark:hover:border-blue-500'}`}
+                  className={`w-full flex items-center justify-between p-4 bg-white dark:bg-slate-900 rounded-2xl border transition-all group ${isPickerOpen ? 'border-primary dark:border-primary shadow-md' : 'border-slate-200 dark:border-slate-700 shadow-sm hover:border-primary dark:hover:border-primary'}`}
                 >
                   <div className='flex items-center gap-3'>
-                    <div className='w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-[#1e3a8a] dark:text-blue-400 flex items-center justify-center'>
+                    <div className='w-10 h-10 rounded-xl bg-blue-50 dark:bg-primary-bg text-primary dark:text-primary flex items-center justify-center'>
                       <MapPin size={20} />
                     </div>
                     <div className='text-left'>
@@ -240,7 +240,7 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                   </div>
                   <ChevronDown
                     size={20}
-                    className={`text-slate-400 dark:text-slate-500 transition-transform ${isPickerOpen ? 'rotate-180 text-[#1e3a8a] dark:text-blue-400' : ''}`}
+                    className={`text-slate-400 dark:text-slate-500 transition-transform ${isPickerOpen ? 'rotate-180 text-primary dark:text-primary' : ''}`}
                   />
                 </button>
               </div>
@@ -265,7 +265,7 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                           placeholder='Cari kota...'
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
-                          className='w-full pl-9 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#1e3a8a] dark:focus:ring-blue-500 transition-all'
+                          className='w-full pl-9 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary transition-all'
                         />
                       </div>
                       <div className='max-h-52 overflow-y-auto space-y-1 pr-2 custom-scrollbar'>
@@ -275,13 +275,13 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                               key={city}
                               onClick={() => handleCitySelect(city)}
                               disabled={isSaving}
-                              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${selectedCity === city ? 'bg-blue-50 dark:bg-blue-900/40 text-[#1e3a8a] dark:text-blue-400' : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'}`}
+                              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${selectedCity === city ? 'bg-blue-50 dark:bg-primary-bg text-primary dark:text-primary' : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'}`}
                             >
                               {city}
                               {selectedCity === city && (
                                 <CheckCircle2
                                   size={16}
-                                  className='text-[#1e3a8a] dark:text-blue-400'
+                                  className='text-primary dark:text-primary'
                                 />
                               )}
                             </button>

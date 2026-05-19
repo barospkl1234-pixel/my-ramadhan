@@ -26,11 +26,11 @@ const JurnalCard = ({ user }) => {
       {/* Decorative moon */}
       <Moon
         size={120}
-        className='absolute -bottom-8 -right-8 text-[#1e3a8a] dark:text-blue-700 opacity-10 pointer-events-none'
+        className='absolute -bottom-8 -right-8 text-primary dark:text-blue-700 opacity-10 pointer-events-none'
       />
 
       <div className='flex items-center gap-2 mb-3'>
-        <PenLine size={20} className='text-[#1e3a8a] dark:text-blue-400' />
+        <PenLine size={20} className='text-primary dark:text-primary' />
         <h3 className='font-bold text-lg text-slate-800 dark:text-slate-100'>
           Jurnal Refleksi
         </h3>
@@ -40,7 +40,7 @@ const JurnalCard = ({ user }) => {
         Bagaimana perasaanmu hari ini?
       </p>
 
-      <div className='mt-4 md:mt-5 lg:mt-5 text-xs font-semibold text-[#1e3a8a] dark:text-blue-400 flex items-center gap-1 relative z-10'>
+      <div className='mt-4 md:mt-5 lg:mt-5 text-xs font-semibold text-primary dark:text-primary flex items-center gap-1 relative z-10'>
         Mulai menulis <ChevronRight size={14} />
       </div>
     </div>

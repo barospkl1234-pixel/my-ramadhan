@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Smartphone, Download, X } from 'lucide-react';
 import useAppMode from '@/hooks/useAppMode';
@@ -31,7 +32,7 @@ export default function GlobalInstallPrompt() {
         </button>
 
         <div className='flex items-start gap-3 mb-3 pr-6'>
-          <div className='w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400'>
+          <div className='w-10 h-10 rounded-full bg-blue-50 dark:bg-primary-bg flex items-center justify-center shrink-0 text-blue-600 dark:text-blue-400'>
             <Smartphone size={20} />
           </div>
           <div>
@@ -47,7 +48,7 @@ export default function GlobalInstallPrompt() {
         {isInstallable ? (
           <button
             onClick={promptInstall}
-            className='w-full py-2.5 bg-[#1e3a8a] hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-500 text-white rounded-xl font-bold text-xs flex justify-center items-center gap-2 transition-all shadow-md active:scale-[0.98]'
+            className='w-full py-2.5 bg-primary hover:bg-primary-dark dark:bg-primary dark:hover:bg-primary-dark text-white rounded-xl font-bold text-xs flex justify-center items-center gap-2 transition-all shadow-md active:scale-[0.98]'
           >
             <Download size={16} /> Install Aplikasi Sekarang
           </button>

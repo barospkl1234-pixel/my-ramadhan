@@ -15,7 +15,7 @@ const DrawerTentang = ({ open, onClose }) => (
     titleColor='text-purple-500 dark:text-purple-400'
   >
     <div className='text-center mb-6'>
-      <div className='w-20 h-20 bg-gradient-to-tr from-[#1e3a8a] to-indigo-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl'>
+      <div className='w-20 h-20 bg-gradient-to-tr from-primary to-indigo-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl'>
         <Moon size={36} strokeWidth={1.5} />
       </div>
       <h3 className='font-bold text-2xl text-slate-800 dark:text-slate-100 tracking-tight'>

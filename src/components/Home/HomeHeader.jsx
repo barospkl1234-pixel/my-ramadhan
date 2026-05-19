@@ -15,12 +15,12 @@ const HomeHeader = ({
   return (
     <header className='flex justify-between items-center mb-8 mt-2 md:mb-10 lg:mb-10'>
       <div>
-        <span className='px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-[#1e3a8a] dark:text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-wider rounded-md'>
+        <span className='px-2 py-0.5 bg-blue-100 dark:bg-primary-bg text-primary dark:text-primary text-[10px] md:text-xs font-bold uppercase tracking-wider rounded-md'>
           {hijriDate}
         </span>
         <h1 className='text-2xl md:text-3xl lg:text-3xl font-extrabold tracking-tight mt-2 leading-tight'>
           {"Assalamu'alaikum"} <br />
-          <span className='text-[#1e3a8a] dark:text-blue-400'>
+          <span className='text-primary dark:text-primary'>
             {user?.name || 'Sahabat!'}
           </span>{' '}
           👋
@@ -55,7 +55,7 @@ const HomeHeader = ({
           ) : (
             <User
               size={20}
-              className='text-[#1e3a8a] dark:text-blue-400 md:w-6 md:h-6 lg:w-6 lg:h-6'
+              className='text-primary dark:text-primary md:w-6 md:h-6 lg:w-6 lg:h-6'
             />
           )}
         </div>

@@ -65,7 +65,7 @@ const AudioPlayer = ({ currentAyat, label, onPrev, onNext, onClose }) => {
     <div className='fixed bottom-0 left-0 right-0 z-50 px-4 pb-safe md:pb-6'>
       <div className='max-w-md md:max-w-2xl lg:max-w-3xl mx-auto bg-white dark:bg-slate-900 rounded-t-3xl md:rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden'>
         {/* Progress bar dekoratif di atas panel */}
-        <div className='h-1.5 bg-gradient-to-r from-[#1e3a8a] via-indigo-500 to-purple-500' />
+        <div className='h-1.5 bg-gradient-to-r from-primary via-indigo-500 to-purple-500' />
 
         <div className='p-4 md:p-5'>
           {/* Label & tombol tutup */}
@@ -97,7 +97,7 @@ const AudioPlayer = ({ currentAyat, label, onPrev, onNext, onClose }) => {
               max={100}
               value={progress}
               onChange={handleSeek}
-              className='flex-1 h-1.5 md:h-2 rounded-full accent-[#1e3a8a] dark:accent-blue-500 cursor-pointer bg-slate-200 dark:bg-slate-700'
+              className='flex-1 h-1.5 md:h-2 rounded-full accent-primary dark:accent-primary cursor-pointer bg-slate-200 dark:bg-slate-700'
             />
             <span className='text-[10px] md:text-xs tabular-nums text-slate-400 dark:text-slate-500 w-8 md:w-10'>
               {fmt(duration)}
@@ -108,19 +108,19 @@ const AudioPlayer = ({ currentAyat, label, onPrev, onNext, onClose }) => {
           <div className='flex items-center justify-center gap-4 md:gap-6'>
             <button
               onClick={onPrev}
-              className='p-2 text-slate-500 dark:text-slate-400 hover:text-[#1e3a8a] dark:hover:text-blue-400 transition-colors'
+              className='p-2 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-400 transition-colors'
             >
               <SkipBack size={24} />
             </button>
             <button
               onClick={togglePlay}
-              className='w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#1e3a8a] dark:bg-blue-700 text-white flex items-center justify-center hover:bg-[#162d6e] dark:hover:bg-blue-800 transition-colors shadow-lg'
+              className='w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary dark:bg-primary text-white flex items-center justify-center hover:bg-[#162d6e] dark:hover:bg-primary-dark transition-colors shadow-lg'
             >
               {isPlaying ? <Pause size={24} /> : <Play size={24} />}
             </button>
             <button
               onClick={onNext}
-              className='p-2 text-slate-500 dark:text-slate-400 hover:text-[#1e3a8a] dark:hover:text-blue-400 transition-colors'
+              className='p-2 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-blue-400 transition-colors'
             >
               <SkipForward size={24} />
             </button>

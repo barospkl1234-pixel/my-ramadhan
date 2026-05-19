@@ -137,7 +137,7 @@ export default function HeatmapStatsDrawer({ isOpen, onClose }) {
           <div className='bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700 min-h-[96px] flex flex-col justify-center transition-all'>
             {selectedDay ? (
               <div className='flex items-start gap-3 animate-in fade-in duration-300'>
-                <div className='p-2.5 bg-blue-100 dark:bg-blue-900/30 text-[#2563eb] dark:text-blue-400 rounded-xl shadow-sm'>
+                <div className='p-2.5 bg-blue-100 dark:bg-primary-bg text-primary dark:text-blue-400 rounded-xl shadow-sm'>
                   <CalendarDays size={22} />
                 </div>
                 <div>
@@ -149,7 +149,7 @@ export default function HeatmapStatsDrawer({ isOpen, onClose }) {
                       size={18}
                       className={
                         selectedDay.seconds > 0
-                          ? 'text-[#2563eb] dark:text-blue-400'
+                          ? 'text-primary dark:text-blue-400'
                           : 'text-slate-400'
                       }
                     />

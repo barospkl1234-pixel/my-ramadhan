@@ -108,7 +108,7 @@ const useHeroMode = (prayerTimes, currentTime) => {
     mode: 'buka',
     label: 'Menuju Berbuka',
     sublabel: `Maghrib pukul ${maghrib.format('HH:mm')}`,
-    gradient: 'from-[#1e3a8a] via-[#312e81] to-[#4c1d95]',
+    gradient: 'from-primary via-primary-dark to-primary-dark',
     shadow: '0 25px 60px -15px rgba(79,70,229,0.5)',
     accent: 'text-indigo-200',
     countdownLabel: 'Menuju Berbuka',

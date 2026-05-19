@@ -36,8 +36,8 @@ const items = [
     key: 'subuh',
     label: 'Sholat Subuh',
     icon: Sun,
-    color: 'text-blue-500 dark:text-blue-400',
-    bg: 'bg-blue-100 dark:bg-blue-900/40',
+    color: 'text-blue-500 dark:text-primary',
+    bg: 'bg-blue-100 dark:bg-primary-bg',
   },
   {
     key: 'dzuhur',
@@ -216,7 +216,7 @@ export default function TrackerDrawer({ isOpen, onClose, onUpdate }) {
                 <button
                   type='button'
                   onClick={handleOpenCalendar}
-                  className='flex items-center gap-1.5 px-3 py-2 bg-[#1e3a8a]/10 dark:bg-blue-900/30 hover:bg-[#1e3a8a]/20 dark:hover:bg-blue-900/50 text-[#1e3a8a] dark:text-blue-400 rounded-xl transition-colors text-xs font-semibold'
+                  className='flex items-center gap-1.5 px-3 py-2 bg-primary/10 dark:bg-primary-bg hover:bg-primary/20 dark:hover:bg-primary-bg text-primary dark:text-primary rounded-xl transition-colors text-xs font-semibold'
                 >
                   <CalendarDays size={15} />
                   Detail 30 Hari

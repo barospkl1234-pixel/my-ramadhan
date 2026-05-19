@@ -54,7 +54,7 @@ export default function KhatamPlanCard({ onResetLastRead }) {
 
         <div className='relative z-10 flex flex-col gap-1.5 w-full mb-4'>
           <div className='flex items-center gap-2'>
-            <Target size={18} className='text-[#2563eb] dark:text-blue-400' />
+            <Target size={18} className='text-primary dark:text-blue-400' />
             <h2 className='font-bold text-slate-800 dark:text-slate-100 text-base'>
               Program Khatam
             </h2>
@@ -67,7 +67,7 @@ export default function KhatamPlanCard({ onResetLastRead }) {
         {!isSetupOpen ? (
           <button
             onClick={() => setIsSetupOpen(true)}
-            className='relative z-10 mt-auto shrink-0 bg-[#2563eb] hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors self-start md:self-end'
+            className='relative z-10 mt-auto shrink-0 bg-primary hover:bg-primary-dark dark:bg-primary dark:hover:bg-primary-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors self-start md:self-end'
           >
             Mulai Program
           </button>
@@ -79,14 +79,14 @@ export default function KhatamPlanCard({ onResetLastRead }) {
               max='365'
               value={targetDays}
               onChange={(e) => setTargetDays(Number(e.target.value))}
-              className='w-20 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm outline-none focus:border-[#2563eb]'
+              className='w-20 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm outline-none focus:border-primary'
             />
             <span className='text-sm font-medium text-slate-600 dark:text-slate-400'>
               Hari
             </span>
             <button
               onClick={handleStartPlan}
-              className='ml-auto px-4 py-2 bg-[#2563eb] dark:bg-blue-600 text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition-colors'
+              className='ml-auto px-4 py-2 bg-primary dark:bg-primary text-white text-sm font-bold rounded-lg hover:bg-primary-dark transition-colors'
             >
               Simpan Target
             </button>
@@ -101,7 +101,7 @@ export default function KhatamPlanCard({ onResetLastRead }) {
       <div className='bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-5 lg:p-6 shadow-sm flex flex-col w-full h-full relative'>
         <div className='flex items-center justify-between mb-4'>
           <h3 className='font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 text-base'>
-            <Target size={18} className='text-[#2563eb] dark:text-blue-400' />
+            <Target size={18} className='text-primary dark:text-blue-400' />
             Progres Khatam
           </h3>
           <button
@@ -114,7 +114,7 @@ export default function KhatamPlanCard({ onResetLastRead }) {
 
         <div className='mb-4'>
           <div className='flex justify-between text-sm mb-1.5'>
-            <span className='font-bold text-[#2563eb] dark:text-blue-400'>
+            <span className='font-bold text-primary dark:text-blue-400'>
               {stats?.percentage}%
             </span>
             <span className='text-slate-500 dark:text-slate-400 font-medium text-xs'>
@@ -123,7 +123,7 @@ export default function KhatamPlanCard({ onResetLastRead }) {
           </div>
           <div className='w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden'>
             <div
-              className='bg-[#2563eb] dark:bg-blue-500 h-2 rounded-full transition-all duration-500'
+              className='bg-primary dark:bg-primary h-2 rounded-full transition-all duration-500'
               style={{ width: `${Math.min(stats?.percentage || 0, 100)}%` }}
             ></div>
           </div>
@@ -160,7 +160,7 @@ export default function KhatamPlanCard({ onResetLastRead }) {
               ? 'bg-red-50 dark:bg-red-500/10 text-red-700 dark:text-red-400'
               : stats?.status === 'AHEAD'
                 ? 'bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400'
-                : 'bg-blue-50 dark:bg-blue-500/10 text-[#2563eb] dark:text-blue-400'
+                : 'bg-blue-50 dark:bg-primary/10 text-primary dark:text-blue-400'
           }`}
         >
           {stats?.status === 'BEHIND' ? (
@@ -197,7 +197,7 @@ export default function KhatamPlanCard({ onResetLastRead }) {
               </p>
               <button
                 onClick={handleFinishKhatam}
-                className='w-full py-3.5 bg-[#2563eb] dark:bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20'
+                className='w-full py-3.5 bg-primary dark:bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20'
               >
                 Selesai & Mulai Ulang
               </button>

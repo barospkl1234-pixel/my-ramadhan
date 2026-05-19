@@ -90,7 +90,7 @@ const DrawerEditProfil = ({
         <button
           onClick={() => fileInputRef.current?.click()}
           disabled={isUploading}
-          className='text-xs font-bold text-[#1e3a8a] dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-4 py-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors flex items-center gap-2'
+          className='text-xs font-bold text-primary dark:text-primary bg-blue-50 dark:bg-primary-bg px-4 py-2 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors flex items-center gap-2'
         >
           <Camera size={14} />{' '}
           {isUploading ? 'Mengunggah...' : 'Ubah Foto Profil'}
@@ -135,7 +135,7 @@ const DrawerEditProfil = ({
             type='text'
             value={editName || ''}
             onChange={(e) => setEditName(e.target.value)}
-            className='w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-[#1e3a8a] dark:focus:ring-blue-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500'
+            className='w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary dark:focus:ring-primary outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500'
             placeholder='Masukkan nama pengguna'
           />
         </div>
@@ -146,7 +146,7 @@ const DrawerEditProfil = ({
           </label>
           <button
             onClick={() => setIsCityPickerOpen(!isCityPickerOpen)}
-            className={`w-full flex items-center justify-between p-3.5 bg-slate-50 dark:bg-slate-800 rounded-xl border transition-all ${isCityPickerOpen ? 'border-[#1e3a8a] dark:border-blue-500 ring-2 ring-blue-500/20' : 'border-slate-200 dark:border-slate-700'}`}
+            className={`w-full flex items-center justify-between p-3.5 bg-slate-50 dark:bg-slate-800 rounded-xl border transition-all ${isCityPickerOpen ? 'border-primary dark:border-primary ring-2 ring-primary/20' : 'border-slate-200 dark:border-slate-700'}`}
           >
             <div className='flex items-center gap-3 text-left'>
               <MapPin
@@ -159,7 +159,7 @@ const DrawerEditProfil = ({
             </div>
             <ChevronDown
               size={18}
-              className={`text-slate-400 transition-transform ${isCityPickerOpen ? 'rotate-180 text-[#1e3a8a] dark:text-blue-400' : ''}`}
+              className={`text-slate-400 transition-transform ${isCityPickerOpen ? 'rotate-180 text-primary dark:text-primary' : ''}`}
             />
           </button>
 
@@ -182,7 +182,7 @@ const DrawerEditProfil = ({
                       placeholder='Cari kota...'
                       value={searchCityTerm}
                       onChange={(e) => setSearchCityTerm(e.target.value)}
-                      className='w-full pl-9 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1e3a8a] dark:focus:ring-blue-500'
+                      className='w-full pl-9 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary'
                     />
                   </div>
                   <div className='max-h-40 overflow-y-auto space-y-1 pr-1 custom-scrollbar'>
@@ -195,13 +195,13 @@ const DrawerEditProfil = ({
                             setIsCityPickerOpen(false);
                             setSearchCityTerm('');
                           }}
-                          className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-medium transition-all ${editLocation === city ? 'bg-blue-50 dark:bg-blue-900/40 text-[#1e3a8a] dark:text-blue-400' : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'}`}
+                          className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-medium transition-all ${editLocation === city ? 'bg-blue-50 dark:bg-primary-bg text-primary dark:text-primary' : 'hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'}`}
                         >
                           {city}
                           {editLocation === city && (
                             <CheckCircle2
                               size={16}
-                              className='text-[#1e3a8a] dark:text-blue-400'
+                              className='text-primary dark:text-primary'
                             />
                           )}
                         </button>
@@ -226,7 +226,7 @@ const DrawerEditProfil = ({
             !editName.trim() ||
             alertMsg?.type === 'success'
           }
-          className='w-full py-3.5 mt-4 bg-[#1e3a8a] dark:bg-blue-700 text-white font-bold rounded-xl hover:bg-[#162d6e] dark:hover:bg-blue-600 transition-colors disabled:opacity-50'
+          className='w-full py-3.5 mt-4 bg-primary dark:bg-primary text-white font-bold rounded-xl hover:bg-[#162d6e] dark:hover:bg-primary-dark transition-colors disabled:opacity-50'
         >
           {isSaving ? 'Menyimpan...' : 'Simpan Perubahan'}
         </button>

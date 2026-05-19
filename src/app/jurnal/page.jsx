@@ -27,9 +27,9 @@ const categories = [
     title: 'Refleksi Harian',
     subtitle: 'Cek perasaan hari ini',
     icon: PenLine,
-    gradient: 'from-[#1e3a8a] to-indigo-700',
-    bg: 'bg-blue-50 dark:bg-blue-900/40',
-    text: 'text-blue-700 dark:text-blue-400',
+    gradient: 'from-primary to-indigo-700',
+    bg: 'bg-blue-50 dark:bg-primary-bg',
+    text: 'text-blue-700 dark:text-primary',
     border: 'border-blue-100 dark:border-blue-800',
     accent: '#1e3a8a',
   },
@@ -103,12 +103,13 @@ export default function JurnalPage() {
     }
   };
 
+  useEffect(() => { document.title = 'Jurnal Refleksi - MyRamadhan'; }, []);
+
   const getMood = (moodId) => moods.find((m) => m.id === moodId);
   const getCat = (catId) => categories.find((c) => c.id === catId);
 
   return (
     <div className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 pb-20'>
-      <title>Jurnal Refleksi - MyRamadhan</title>
       <header className='sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 py-4 flex items-center justify-between'>
         <div className='flex items-center gap-3'>
           <button
@@ -137,7 +138,7 @@ export default function JurnalPage() {
           </div>
           <h2 className='text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-100'>
             Bagaimana perasaanmu <br className='md:hidden' />{' '}
-            <span className='text-[#1e3a8a] dark:text-blue-400'>hari ini?</span>
+            <span className='text-primary dark:text-primary'>hari ini?</span>
           </h2>
         </motion.div>
 

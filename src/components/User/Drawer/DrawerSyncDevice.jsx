@@ -284,7 +284,7 @@ const DrawerSyncDevice = ({ open, onClose }) => {
                   ? 'bg-emerald-50 dark:bg-emerald-950/30'
                   : syncStatus === 'error'
                     ? 'bg-rose-50 dark:bg-rose-950/30'
-                    : 'bg-blue-50 dark:bg-blue-950/30'
+                    : 'bg-blue-50 dark:bg-primary-bg'
               }`}
             >
               {syncStatus === 'syncing' && (

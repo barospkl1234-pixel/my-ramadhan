@@ -67,7 +67,7 @@ export default function AyatCard({
       id={domId}
       className={`rounded-[2rem] md:rounded-[2.5rem] border transition-all duration-300 overflow-hidden scroll-mt-36 md:scroll-mt-40 ${
         isLastRead
-          ? 'bg-blue-50/60 dark:bg-blue-950/30 border-[#1e3a8a] dark:border-blue-700 ring-2 ring-[#1e3a8a]/20 dark:ring-blue-700/20'
+          ? 'bg-blue-50/60 dark:bg-primary-bg border-primary dark:border-blue-700 ring-2 ring-primary/20 dark:ring-blue-700/20'
           : isAnchor
             ? 'bg-indigo-50/40 dark:bg-indigo-900/30 border-indigo-300 dark:border-indigo-600'
             : 'bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700 hover:border-blue-100 dark:hover:border-blue-800'
@@ -79,8 +79,8 @@ export default function AyatCard({
           <div
             className={`w-9 h-9 md:w-10 md:h-10 rounded-xl flex items-center justify-center text-xs md:text-sm font-black ${
               isLastRead
-                ? 'bg-[#1e3a8a] dark:bg-blue-700 text-white'
-                : 'bg-blue-50 dark:bg-blue-950/50 text-[#1e3a8a] dark:text-blue-400'
+                ? 'bg-primary dark:bg-primary text-white'
+                : 'bg-blue-50 dark:bg-primary-bg text-primary dark:text-primary'
             }`}
           >
             {ayat.nomorAyat}
@@ -97,7 +97,7 @@ export default function AyatCard({
             onClick={() => onPlayAudio(ayat)}
             className={`p-2 rounded-full transition-colors ${
               isPlaying
-                ? 'bg-[#1e3a8a] dark:bg-blue-700 text-white'
+                ? 'bg-primary dark:bg-primary text-white'
                 : 'text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'
             }`}
           >
@@ -159,7 +159,7 @@ export default function AyatCard({
                 </p>
               )}
             </div>
-            <button className='absolute inset-0 flex items-center justify-center gap-2 text-[#1e3a8a] dark:text-blue-400 font-bold text-sm md:text-base'>
+            <button className='absolute inset-0 flex items-center justify-center gap-2 text-primary dark:text-primary font-bold text-sm md:text-base'>
               <Eye size={18} /> Intip Ayat
             </button>
           </div>
@@ -207,8 +207,8 @@ export default function AyatCard({
           disabled={isLastRead}
           className={`w-full py-2.5 md:py-3 rounded-2xl border text-xs md:text-sm font-bold transition-all ${
             isLastRead
-              ? 'bg-[#1e3a8a] dark:bg-blue-700 text-white border-[#1e3a8a] dark:border-blue-700 cursor-default'
-              : 'border-dashed border-slate-200 dark:border-slate-600 text-slate-400 dark:text-slate-500 hover:text-[#1e3a8a] dark:hover:text-blue-400 hover:border-[#1e3a8a]/40 dark:hover:border-blue-700/40 hover:bg-blue-50/30 dark:hover:bg-blue-950/20'
+              ? 'bg-primary dark:bg-primary text-white border-primary dark:border-blue-700 cursor-default'
+              : 'border-dashed border-slate-200 dark:border-slate-600 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 hover:border-primary/40 dark:hover:border-blue-700/40 hover:bg-blue-50/30 dark:hover:bg-blue-950/20'
           }`}
         >
           {isLastRead ? '✓ Terakhir Dibaca' : 'Tandai Terakhir Dibaca'}

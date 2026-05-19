@@ -17,7 +17,7 @@ const BookmarkCard = ({ bookmark, onRemove }) => {
     <div className='bg-white dark:bg-slate-900 p-5 lg:p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col h-full hover:shadow-md transition-shadow'>
       {/* Header: label + tombol hapus */}
       <div className='flex justify-between items-center mb-4'>
-        <span className='bg-blue-50 dark:bg-blue-500/20 text-[#1e3a8a] dark:text-blue-300 text-[10px] lg:text-xs font-black px-3 py-1.5 rounded-md uppercase tracking-wider'>
+        <span className='bg-blue-50 dark:bg-primary-bg text-primary dark:text-blue-300 text-[10px] lg:text-xs font-black px-3 py-1.5 rounded-md uppercase tracking-wider'>
           {bookmark.surahName} • Ayat {bookmark.ayahNumber}
         </span>
         <button
@@ -50,7 +50,7 @@ const BookmarkCard = ({ bookmark, onRemove }) => {
             `/quran/surah/${bookmark.surahId}#ayat-${bookmark.ayahNumber}`,
           )
         }
-        className='w-full mt-auto py-3 rounded-xl border border-[#1e3a8a] dark:border-blue-400 text-xs lg:text-sm font-bold text-[#1e3a8a] dark:text-blue-300 hover:bg-[#1e3a8a] hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition-all'
+        className='w-full mt-auto py-3 rounded-xl border border-primary dark:border-blue-400 text-xs lg:text-sm font-bold text-primary dark:text-blue-300 hover:bg-primary hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition-all'
       >
         Buka Ayat Ini
       </button>

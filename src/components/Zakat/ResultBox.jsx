@@ -17,7 +17,7 @@ export default function ResultBox({ label, value, isWajib, note }) {
       animate={{ opacity: 1, y: 0 }}
       className={`mt-5 rounded-2xl p-4 ${
         isWajib
-          ? 'bg-[#1e3a8a] dark:bg-blue-800'
+          ? 'bg-primary dark:bg-primary-dark'
           : 'bg-slate-100 dark:bg-slate-800'
       }`}
     >

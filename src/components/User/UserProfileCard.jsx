@@ -21,10 +21,10 @@ const UserProfileCard = ({ user, onEditProfile }) => {
 
   return (
     <div className='bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-100 dark:border-slate-800 relative overflow-hidden group'>
-      <div className='absolute top-0 right-0 w-32 h-32 bg-blue-50 dark:bg-blue-900/10 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110' />
+      <div className='absolute top-0 right-0 w-32 h-32 bg-blue-50 dark:bg-primary-bg rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110' />
 
       <div className='flex items-center gap-5 relative z-10'>
-        <div className='w-20 h-20 bg-gradient-to-tr from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-full flex items-center justify-center text-[#1e3a8a] dark:text-blue-400 shadow-inner shrink-0 relative overflow-hidden border-4 border-white dark:border-slate-800'>
+        <div className='w-20 h-20 bg-gradient-to-tr from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40 rounded-full flex items-center justify-center text-primary dark:text-primary shadow-inner shrink-0 relative overflow-hidden border-4 border-white dark:border-slate-800'>
           {user.avatar ? (
             <Image
               src={user.avatar}
@@ -63,7 +63,7 @@ const UserProfileCard = ({ user, onEditProfile }) => {
 
         <button
           onClick={onEditProfile}
-          className='w-10 h-10 flex items-center justify-center bg-slate-50 dark:bg-slate-800 rounded-2xl text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all border border-transparent hover:border-blue-100 dark:hover:border-blue-800'
+          className='w-10 h-10 flex items-center justify-center bg-slate-50 dark:bg-slate-800 rounded-2xl text-slate-400 hover:text-primary dark:hover:text-primary hover:bg-blue-50 dark:hover:bg-primary-bg transition-all border border-transparent hover:border-primary dark:hover:border-primary'
         >
           <Edit3 size={18} />
         </button>

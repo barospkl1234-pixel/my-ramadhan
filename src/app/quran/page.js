@@ -162,7 +162,7 @@ export default function QuranIndex() {
                 className='text-slate-600 dark:text-slate-300'
               />
             </button>
-            <h1 className='font-bold text-xl flex items-center gap-2 text-[#1e3a8a] dark:text-blue-400'>
+            <h1 className='font-bold text-xl flex items-center gap-2 text-primary dark:text-primary'>
               <Bookmark size={22} /> Ayat Disimpan
             </h1>
           </div>
@@ -196,7 +196,7 @@ export default function QuranIndex() {
   }
 
   return (
-    <div className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 text-slate-800 dark:text-slate-100 pb-20 selection:bg-blue-200 dark:selection:bg-blue-800 relative'>
+    <div className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 text-slate-800 dark:text-slate-100 pb-20 selection:bg-primary-bg dark:selection:bg-primary-bg relative'>
       <header className='sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-100 dark:border-slate-800'>
         <div className='max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-4'>
           <div className='flex items-center justify-between mb-4 lg:mb-5'>
@@ -210,7 +210,7 @@ export default function QuranIndex() {
                   className='text-slate-600 dark:text-slate-300'
                 />
               </button>
-              <h1 className='font-bold text-xl flex items-center gap-2 text-[#1e3a8a] dark:text-blue-400'>
+              <h1 className='font-bold text-xl flex items-center gap-2 text-primary dark:text-primary'>
                 <BookOpen size={24} /> Al-Qur'an
               </h1>
             </div>
@@ -218,13 +218,13 @@ export default function QuranIndex() {
             <div className='flex items-center gap-2'>
               <button
                 onClick={() => setIsHeatmapOpen(true)}
-                className='p-2 bg-blue-50 dark:bg-blue-500/20 text-[#1e3a8a] dark:text-blue-300 rounded-full hover:bg-blue-100 dark:hover:bg-blue-500/30 transition-colors'
+                className='p-2 bg-blue-50 dark:bg-primary-bg text-primary dark:text-blue-300 rounded-full hover:bg-blue-100 dark:hover:bg-primary-dark/30 transition-colors'
               >
                 <BarChart2 size={20} />
               </button>
               <button
                 onClick={() => setView('bookmarks')}
-                className='p-2 bg-blue-50 dark:bg-blue-500/20 text-[#1e3a8a] dark:text-blue-300 rounded-full hover:bg-blue-100 dark:hover:bg-blue-500/30 transition-colors'
+                className='p-2 bg-blue-50 dark:bg-primary-bg text-primary dark:text-blue-300 rounded-full hover:bg-blue-100 dark:hover:bg-primary-dark/30 transition-colors'
               >
                 <Bookmark size={20} />
               </button>
@@ -244,7 +244,7 @@ export default function QuranIndex() {
                     ? 'Cari nama surah atau arti...'
                     : 'Ketik angka Juz (1-30)...'
                 }
-                className='w-full pl-12 pr-4 py-3 bg-slate-100 dark:bg-slate-800 rounded-2xl border-none focus:ring-2 focus:ring-[#1e3a8a] dark:focus:ring-blue-400 outline-none text-sm transition-all disabled:opacity-50'
+                className='w-full pl-12 pr-4 py-3 bg-slate-100 dark:bg-slate-800 rounded-2xl border-none focus:ring-2 focus:ring-primary dark:focus:ring-primary outline-none text-sm transition-all disabled:opacity-50'
                 onChange={handleSearchChange}
                 value={searchQuery}
                 min={activeTab === 'juz' ? 1 : undefined}
@@ -261,7 +261,7 @@ export default function QuranIndex() {
                   }}
                   className={`flex-1 py-2 text-[13px] font-bold rounded-lg transition-all ${
                     activeTab === key
-                      ? 'bg-white dark:bg-slate-900 text-[#1e3a8a] dark:text-blue-300 shadow-sm'
+                      ? 'bg-white dark:bg-slate-900 text-primary dark:text-blue-300 shadow-sm'
                       : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
                   }`}
                 >
@@ -328,14 +328,14 @@ export default function QuranIndex() {
                 <div
                   key={s.nomor}
                   onClick={() => router.push(`/quran/surah/${s.nomor}`)}
-                  className='bg-white dark:bg-slate-900 p-4 lg:p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#1e3a8a] dark:hover:border-blue-400 transition-all cursor-pointer flex items-center justify-between group'
+                  className='bg-white dark:bg-slate-900 p-4 lg:p-5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary dark:hover:border-blue-400 transition-all cursor-pointer flex items-center justify-between group'
                 >
                   <div className='flex items-center gap-4'>
-                    <div className='w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-blue-50 dark:bg-blue-500/20 flex items-center justify-center text-xs lg:text-sm font-bold text-slate-400 dark:text-slate-300 group-hover:bg-[#1e3a8a] group-hover:text-white transition-colors'>
+                    <div className='w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-blue-50 dark:bg-primary-bg flex items-center justify-center text-xs lg:text-sm font-bold text-slate-400 dark:text-slate-300 group-hover:bg-primary group-hover:text-white transition-colors'>
                       {s.nomor}
                     </div>
                     <div>
-                      <h3 className='font-bold text-slate-800 dark:text-slate-100 text-sm lg:text-base group-hover:text-[#1e3a8a] dark:group-hover:text-blue-400 transition-colors'>
+                      <h3 className='font-bold text-slate-800 dark:text-slate-100 text-sm lg:text-base group-hover:text-primary dark:group-hover:text-blue-400 transition-colors'>
                         {s.namaLatin}
                       </h3>
                       <p className='text-[10px] lg:text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-0.5'>
@@ -343,7 +343,7 @@ export default function QuranIndex() {
                       </p>
                     </div>
                   </div>
-                  <div className='text-xl lg:text-2xl font-arabic text-[#1e3a8a] dark:text-blue-400 opacity-80 group-hover:opacity-100 transition-opacity'>
+                  <div className='text-xl lg:text-2xl font-arabic text-primary dark:text-primary opacity-80 group-hover:opacity-100 transition-opacity'>
                     {s.nama}
                   </div>
                 </div>
@@ -365,12 +365,12 @@ export default function QuranIndex() {
               <div
                 key={juz}
                 onClick={() => router.push(`/quran/juz/${juz}`)}
-                className='bg-white dark:bg-slate-900 p-5 lg:p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-[#1e3a8a] dark:hover:border-blue-400 transition-all cursor-pointer flex flex-col items-center justify-center gap-2 lg:gap-3 group'
+                className='bg-white dark:bg-slate-900 p-5 lg:p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-primary dark:hover:border-blue-400 transition-all cursor-pointer flex flex-col items-center justify-center gap-2 lg:gap-3 group'
               >
-                <div className='w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-blue-50 dark:bg-blue-500/20 text-[#1e3a8a] dark:text-blue-300 flex items-center justify-center group-hover:scale-110 transition-transform'>
+                <div className='w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-blue-50 dark:bg-primary-bg text-primary dark:text-blue-300 flex items-center justify-center group-hover:scale-110 transition-transform'>
                   <Book size={24} />
                 </div>
-                <h3 className='font-bold text-slate-800 dark:text-slate-100 group-hover:text-[#1e3a8a] dark:group-hover:text-blue-400 lg:text-lg'>
+                <h3 className='font-bold text-slate-800 dark:text-slate-100 group-hover:text-primary dark:group-hover:text-blue-400 lg:text-lg'>
                   Juz {juz}
                 </h3>
               </div>

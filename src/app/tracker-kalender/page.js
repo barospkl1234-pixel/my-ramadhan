@@ -51,7 +51,7 @@ const getProgressColor = (percent) => {
   if (percent < 70)
     return 'bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-400';
   if (percent < 100)
-    return 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400';
+    return 'bg-blue-100 dark:bg-primary-bg text-blue-700 dark:text-primary';
   return 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400';
 };
 
@@ -188,7 +188,7 @@ export default function TrackerKalender() {
   return (
     <main className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 pb-16 transition-colors duration-300'>
       <div className='fixed inset-0 -z-10 pointer-events-none overflow-hidden'>
-        <div className='absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60' />
+        <div className='absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-100/50 dark:bg-primary-bg rounded-full blur-3xl opacity-60' />
         <div className='absolute bottom-[-10%] right-[-10%] w-[350px] h-[350px] bg-indigo-100/50 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-60' />
       </div>
 
@@ -220,8 +220,8 @@ export default function TrackerKalender() {
           <StatCard
             value={totalDaysPassed}
             label='Hari Dilalui'
-            color='text-[#1e3a8a] dark:text-blue-400'
-            bg='bg-blue-50 dark:bg-blue-950/50'
+            color='text-primary dark:text-primary'
+            bg='bg-blue-50 dark:bg-primary-bg'
           />
           <StatCard
             value={totalCompleted}
@@ -293,7 +293,7 @@ export default function TrackerKalender() {
                         className={`
                           relative flex flex-col items-center justify-center h-11 md:h-14 lg:h-16 rounded-xl md:rounded-2xl transition-all font-bold
                           ${isFuture ? 'opacity-25 cursor-default' : 'cursor-pointer hover:scale-105 active:scale-95'}
-                          ${isSelected ? 'ring-2 ring-[#1e3a8a] dark:ring-blue-500 ring-offset-1 dark:ring-offset-slate-900 shadow-md' : ''}
+                          ${isSelected ? 'ring-2 ring-primary dark:ring-blue-500 ring-offset-1 dark:ring-offset-slate-900 shadow-md' : ''}
                           ${isToday ? 'ring-2 ring-emerald-400 ring-offset-1 dark:ring-offset-slate-900' : ''}
                           ${!isFuture ? getProgressColor(progress.percent) : 'bg-slate-50 dark:bg-slate-800 text-slate-300 dark:text-slate-600'}
                         `}
@@ -542,7 +542,7 @@ export default function TrackerKalender() {
                   animate={{ opacity: 1 }}
                   className='hidden lg:flex flex-col items-center justify-center h-full min-h-[400px] border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-[2rem] text-center p-8 bg-slate-50 dark:bg-slate-900/50'
                 >
-                  <div className='w-20 h-20 bg-blue-50 dark:bg-blue-900/20 text-[#1e3a8a] dark:text-blue-400 rounded-full flex items-center justify-center mb-4'>
+                  <div className='w-20 h-20 bg-blue-50 dark:bg-primary-bg text-primary dark:text-primary rounded-full flex items-center justify-center mb-4'>
                     <Target size={32} />
                   </div>
                   <h3 className='font-bold text-lg text-slate-700 dark:text-slate-200 mb-2'>

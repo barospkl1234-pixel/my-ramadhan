@@ -17,7 +17,7 @@ export default function InputField({
       <label className='block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wider'>
         {label}
       </label>
-      <div className='flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 px-4 py-3 focus-within:border-[#1e3a8a]/30 dark:focus-within:border-blue-500/30 focus-within:ring-2 focus-within:ring-[#1e3a8a]/10 dark:focus-within:ring-blue-500/20 transition-all'>
+      <div className='flex items-center gap-2 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 px-4 py-3 focus-within:border-primary/30 dark:focus-within:border-primary/30 focus-within:ring-2 focus-within:ring-primary/10 dark:focus-within:ring-primary/20 transition-all'>
         {prefix && (
           <span className='text-xs font-bold text-slate-400 dark:text-slate-500 shrink-0'>
             {prefix}

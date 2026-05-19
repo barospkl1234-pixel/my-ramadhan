@@ -13,7 +13,7 @@ const LastReadBanner = ({ lastRead, onContinue }) => {
   if (!lastRead) return null;
 
   return (
-    <div className='mb-6 lg:mb-8 md:max-w-2xl lg:max-w-2xl md:mx-auto bg-gradient-to-r from-[#1e3a8a] to-[#312e81] rounded-[2rem] p-6 lg:p-8 text-white shadow-lg relative overflow-hidden'>
+    <div className='mb-6 lg:mb-8 md:max-w-2xl lg:max-w-2xl md:mx-auto bg-gradient-to-r from-primary to-[#312e81] rounded-[2rem] p-6 lg:p-8 text-white shadow-lg relative overflow-hidden'>
       {/* Dekorasi ikon buku */}
       <BookOpen className='absolute -right-4 -bottom-4 opacity-10' size={120} />
 
@@ -37,7 +37,7 @@ const LastReadBanner = ({ lastRead, onContinue }) => {
 
         <button
           onClick={onContinue}
-          className='bg-white text-[#1e3a8a] text-xs lg:text-sm font-bold px-6 py-3 rounded-full hover:bg-blue-50 transition-colors shadow-sm flex items-center gap-2 w-fit'
+          className='bg-white text-primary text-xs lg:text-sm font-bold px-6 py-3 rounded-full hover:bg-blue-50 transition-colors shadow-sm flex items-center gap-2 w-fit'
         >
           <PlayCircle size={18} /> Lanjutkan Membaca
         </button>

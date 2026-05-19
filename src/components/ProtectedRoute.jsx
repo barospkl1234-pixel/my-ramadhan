@@ -17,7 +17,7 @@ export default function ProtectedRoute({ children }) {
 
   if (loading || !user) {
     return (
-      <div className='min-h-screen bg-[#1e3a8a] flex items-center justify-center'>
+      <div className='min-h-screen bg-primary flex items-center justify-center'>
         <div className='flex flex-col items-center gap-6'>
           {/* Moon spinner */}
           <div className='relative'>

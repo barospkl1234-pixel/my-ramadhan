@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from 'react';
 import localforage from 'localforage';
 import { DEFAULT_READER_SETTINGS } from '@/data/quranConstants';

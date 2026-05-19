@@ -42,8 +42,8 @@ export default function SideNav() {
         path: '/',
         icon: Home,
         label: 'Beranda',
-        activeColor: 'text-[#1e3a8a] dark:text-blue-400',
-        bgHover: 'hover:bg-blue-50 dark:hover:bg-blue-900/30',
+        activeColor: 'text-primary dark:text-primary',
+        bgHover: 'hover:bg-blue-50 dark:hover:bg-primary-bg',
       },
     ],
     [
@@ -51,15 +51,15 @@ export default function SideNav() {
         path: '/tracker-kalender',
         icon: CalendarDays,
         label: 'Ramadhan Tracker',
-        activeColor: 'text-[#1e3a8a] dark:text-blue-400',
-        bgHover: 'hover:bg-blue-50 dark:hover:bg-blue-900/30',
+        activeColor: 'text-primary dark:text-primary',
+        bgHover: 'hover:bg-blue-50 dark:hover:bg-primary-bg',
       },
       {
         path: '/jurnal',
         icon: Pen,
         label: 'Jurnal Syukur',
-        activeColor: 'text-[#1e3a8a] dark:text-blue-400',
-        bgHover: 'hover:bg-blue-50 dark:hover:bg-blue-900/30',
+        activeColor: 'text-primary dark:text-primary',
+        bgHover: 'hover:bg-blue-50 dark:hover:bg-primary-bg',
       },
     ],
     [
@@ -67,8 +67,8 @@ export default function SideNav() {
         path: '/quran',
         icon: BookOpen,
         label: "Al-Qur'an",
-        activeColor: 'text-[#1e3a8a] dark:text-blue-400',
-        bgHover: 'hover:bg-blue-50 dark:hover:bg-blue-900/30',
+        activeColor: 'text-primary dark:text-primary',
+        bgHover: 'hover:bg-blue-50 dark:hover:bg-primary-bg',
       },
       {
         path: '/doa',
@@ -127,15 +127,15 @@ export default function SideNav() {
         path: '/ramatalk',
         icon: MessageCircle,
         label: 'RamaTalk AI',
-        activeColor: 'text-[#1e3a8a] dark:text-blue-400',
-        bgHover: 'hover:bg-blue-50 dark:hover:bg-blue-900/30',
+        activeColor: 'text-primary dark:text-primary',
+        bgHover: 'hover:bg-blue-50 dark:hover:bg-primary-bg',
       },
       {
         path: '/user',
         icon: User,
         label: 'Profil & Pengaturan',
-        activeColor: 'text-[#1e3a8a] dark:text-blue-400',
-        bgHover: 'hover:bg-blue-50 dark:hover:bg-blue-900/30',
+        activeColor: 'text-primary dark:text-primary',
+        bgHover: 'hover:bg-blue-50 dark:hover:bg-primary-bg',
       },
     ],
   ];
@@ -152,7 +152,7 @@ export default function SideNav() {
           w-7 h-16 rounded-l-2xl border border-r-0 border-slate-200 dark:border-slate-700
           bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[-4px_0_15px_rgba(0,0,0,0.08)]
           transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-          text-slate-400 dark:text-slate-500 hover:text-[#1e3a8a] dark:hover:text-blue-400 hover:w-8
+          text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-blue-400 hover:w-8
           ${isOpen ? 'translate-x-2 opacity-0 pointer-events-none' : 'translate-x-0 opacity-100'}
         `}
         title='Menu Navigasi'

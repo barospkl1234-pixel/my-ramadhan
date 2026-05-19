@@ -36,7 +36,7 @@ const ReaderSettingsPanel = ({ settings, onSettingChange, onSizeChange }) => {
               onClick={() => onSettingChange(key)}
               className={`py-2 md:px-6 rounded-xl text-[11px] md:text-xs font-bold transition-all border ${
                 settings[key]
-                  ? 'bg-[#1e3a8a] dark:bg-blue-700 text-white border-[#1e3a8a] dark:border-blue-700'
+                  ? 'bg-primary dark:bg-primary text-white border-primary dark:border-blue-700'
                   : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700'
               }`}
             >
@@ -60,7 +60,7 @@ const ReaderSettingsPanel = ({ settings, onSettingChange, onSizeChange }) => {
                 onClick={() => onSizeChange(s.key)}
                 className={`flex flex-col md:flex-row md:gap-2 items-center justify-center py-2 md:px-3 md:py-1.5 rounded-xl border-2 transition-all ${
                   settings.arabSize === s.key
-                    ? 'border-[#1e3a8a] bg-blue-50 dark:bg-blue-950/40 text-[#1e3a8a] dark:text-blue-400'
+                    ? 'border-primary bg-blue-50 dark:bg-primary-bg text-primary dark:text-primary'
                     : 'border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600'
                 }`}
               >
@@ -83,7 +83,7 @@ const ReaderSettingsPanel = ({ settings, onSettingChange, onSizeChange }) => {
           <div className='flex flex-col items-center md:items-start w-full md:w-auto mt-2 md:mt-0 md:ml-4'>
             <button
               onClick={() => setShowTajwidInfo((v) => !v)}
-              className='flex items-center justify-center gap-1.5 text-[11px] md:text-xs text-[#1e3a8a] dark:text-blue-400 font-bold hover:underline mb-3 w-full md:w-auto'
+              className='flex items-center justify-center gap-1.5 text-[11px] md:text-xs text-primary dark:text-primary font-bold hover:underline mb-3 w-full md:w-auto'
             >
               <Info size={14} /> Keterangan tajwid
               {showTajwidInfo ? (

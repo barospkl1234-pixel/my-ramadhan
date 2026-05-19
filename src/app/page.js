@@ -52,7 +52,7 @@ export default function MyRamadhanHome() {
 
   const { hijriDate, hijriDay } = useHijriDate();
   const { prayerTimes, userCity, fetchPrayerTimes } = usePrayerTimes();
-  const { taskProgress, fetchTrackerSummary } = useTrackerSummary(user, true);
+  const { taskProgress, fetchTrackerSummary } = useTrackerSummary();
   const { notifications, hasUnreadNotif, markAsRead } = useNotifications(
     mounted,
     hijriDay,
@@ -104,10 +104,10 @@ export default function MyRamadhanHome() {
   if (!mounted) return null;
 
   return (
-    <main className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 text-slate-800 dark:text-slate-100 pb-16 selection:bg-blue-200 dark:selection:bg-blue-800 transition-colors duration-300'>
+    <main className='min-h-screen bg-[#F6F9FC] dark:bg-slate-950 text-slate-800 dark:text-slate-100 pb-16 selection:bg-primary-bg dark:selection:bg-primary-bg transition-colors duration-300'>
       {/* SECTION: BACKGROUND DECORATION */}
       <div className='fixed inset-0 -z-10 pointer-events-none overflow-hidden'>
-        <div className='absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-60' />
+        <div className='absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-100/50 dark:bg-primary-bg rounded-full blur-3xl opacity-60' />
         <div className='absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-indigo-100/50 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-60' />
       </div>
 

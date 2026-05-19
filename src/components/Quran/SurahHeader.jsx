@@ -72,8 +72,8 @@ const SurahHeader = ({
               onClick={onToggleHafalan}
               className={`px-4 py-2 md:py-2.5 rounded-full text-[11px] md:text-xs font-bold transition-all border flex items-center gap-1.5 ${
                 hafalanMode
-                  ? 'bg-[#1e3a8a] dark:bg-blue-600 text-white border-[#1e3a8a] dark:border-blue-600'
-                  : 'text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-[#1e3a8a]/30'
+                  ? 'bg-primary dark:bg-primary text-white border-primary dark:border-blue-600'
+                  : 'text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-primary/30'
               }`}
             >
               {hafalanMode ? <Eye size={15} /> : <EyeOff size={15} />}
@@ -83,7 +83,7 @@ const SurahHeader = ({
               onClick={onToggleSettings}
               className={`p-2.5 rounded-full transition-colors ${
                 showSettings
-                  ? 'bg-[#1e3a8a] dark:bg-blue-600 text-white'
+                  ? 'bg-primary dark:bg-primary text-white'
                   : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
               }`}
             >
@@ -106,12 +106,12 @@ const SurahHeader = ({
               placeholder={`Loncat ke ayat (1 - ${surah?.jumlahAyat || ''})...`}
               value={jumpNumber}
               onChange={(e) => setJumpNumber(e.target.value)}
-              className='w-full pl-10 pr-4 py-2.5 md:py-3 bg-slate-100/80 dark:bg-slate-800 rounded-2xl border-none focus:ring-2 focus:ring-[#1e3a8a] outline-none text-[13px] md:text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400'
+              className='w-full pl-10 pr-4 py-2.5 md:py-3 bg-slate-100/80 dark:bg-slate-800 rounded-2xl border-none focus:ring-2 focus:ring-primary outline-none text-[13px] md:text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400'
             />
           </div>
           <button
             type='submit'
-            className='bg-[#1e3a8a] dark:bg-blue-600 hover:bg-blue-800 text-white font-bold px-5 py-2.5 md:py-3 rounded-2xl transition-colors text-[13px] md:text-sm shadow-sm flex items-center justify-center shrink-0'
+            className='bg-primary dark:bg-primary hover:bg-primary-dark text-white font-bold px-5 py-2.5 md:py-3 rounded-2xl transition-colors text-[13px] md:text-sm shadow-sm flex items-center justify-center shrink-0'
           >
             Loncat
           </button>

@@ -15,7 +15,7 @@ import localforage from 'localforage';
 
 const catStyles = {
   daily: {
-    gradient: 'from-[#1e3a8a] to-indigo-700',
+    gradient: 'from-primary to-indigo-700',
     light:
       'from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/40',
     border: 'border-blue-100 dark:border-blue-800',
@@ -113,6 +113,8 @@ export default function WriteJournal() {
     }
   };
 
+  useEffect(() => { document.title = `${catData?.title || 'Jurnal'} — MyRamadhan`; }, [catData?.title]);
+
   if (!type || !journalPrompts[type]) return null;
 
   const style = catStyles[type] || catStyles.daily;
@@ -121,7 +123,6 @@ export default function WriteJournal() {
 
   return (
     <div className='min-h-screen bg-[#FAFAF7] dark:bg-slate-950 flex flex-col transition-colors duration-300'>
-      <title>{catData.title} — MyRamadhan</title>
 
       <div className='fixed inset-0 pointer-events-none -z-10 overflow-hidden'>
         <div
@@ -207,7 +208,7 @@ export default function WriteJournal() {
                     }
                     className={`flex flex-col items-center gap-1.5 px-3 py-2.5 rounded-2xl border transition-all shrink-0 md:w-full ${
                       selectedMood === m.id
-                        ? 'bg-[#1e3a8a] dark:bg-blue-600 border-slate-200 dark:border-slate-700 shadow-md scale-105'
+                        ? 'bg-primary dark:bg-primary border-slate-200 dark:border-slate-700 shadow-md scale-105'
                         : 'bg-white/50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-700 opacity-60 hover:opacity-100'
                     }`}
                   >

@@ -10,7 +10,7 @@ const SurahHeroBanner = ({ surah }) => {
   if (!surah) return null;
 
   return (
-    <div className='bg-gradient-to-br from-[#1e3a8a] to-[#312e81] dark:from-blue-800 dark:to-indigo-800 rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-12 text-white text-center relative overflow-hidden mb-2 md:mb-4'>
+    <div className='bg-gradient-to-br from-primary to-[#312e81] dark:from-primary-dark dark:to-primary-dark rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-12 text-white text-center relative overflow-hidden mb-2 md:mb-4'>
       {/* Radial glow dekoratif */}
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.12),transparent_70%)]' />
 

@@ -21,7 +21,7 @@ const TOOLS = [
   {
     icon: BookOpen,
     title: "Al-Qur'an",
-    colorClass: 'text-[#1e3a8a] dark:text-blue-400',
+    colorClass: 'text-primary dark:text-primary',
     bgClass: 'text-blue-100 dark:text-blue-900/60',
     route: '/quran',
   },

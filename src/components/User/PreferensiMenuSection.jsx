@@ -1,12 +1,35 @@
 'use client';
 
-import { Moon, Sun, Database, Trash2, ChevronRight } from 'lucide-react';
+import { Moon, Sun, Star, Database, Trash2, ChevronRight } from 'lucide-react';
+
+const THEME_CONFIG = {
+  light: {
+    label: 'Terang',
+    icon: Sun,
+    iconClass: 'bg-amber-100 dark:bg-amber-900/40 text-amber-500 dark:text-amber-400',
+  },
+  dark: {
+    label: 'Gelap',
+    icon: Moon,
+    iconClass: 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400',
+  },
+  'ramadan-light': {
+    label: 'Ramadan ☀',
+    icon: Sun,
+    iconClass: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400',
+  },
+  'ramadan-dark': {
+    label: 'Ramadan 🌙',
+    icon: Moon,
+    iconClass: 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400',
+  },
+};
 
 /**
  * PreferensiMenuSection — daftar menu pengaturan aplikasi:
  * tema, manajemen data, dan reset data.
  *
- * @prop {string}   theme         - Tema aktif: 'light' | 'dark'
+ * @prop {string}   theme         - Tema aktif: 'light' | 'dark' | 'ramadan-light' | 'ramadan-dark'
  * @prop {Function} onOpenTema
  * @prop {Function} onOpenData
  * @prop {Function} onOpenReset
@@ -16,7 +39,11 @@ const PreferensiMenuSection = ({
   onOpenTema,
   onOpenData,
   onOpenReset,
-}) => (
+}) => {
+  const cfg = THEME_CONFIG[theme] || THEME_CONFIG.light;
+  const ThemeIcon = cfg.icon;
+
+  return (
   <div>
     <p className='text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3 ml-2'>
       Preferensi Aplikasi
@@ -28,10 +55,8 @@ const PreferensiMenuSection = ({
         className='w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors border-b border-slate-50 dark:border-slate-800'
       >
         <div className='flex items-center gap-3'>
-          <div
-            className={`p-2 rounded-xl ${theme === 'dark' ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400' : 'bg-amber-100 dark:bg-amber-900/40 text-amber-500 dark:text-amber-400'}`}
-          >
-            {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
+          <div className={`p-2 rounded-xl ${cfg.iconClass}`}>
+            <ThemeIcon size={18} />
           </div>
           <span className='font-semibold text-slate-700 dark:text-slate-200 text-sm'>
             Tema Aplikasi
@@ -39,7 +64,7 @@ const PreferensiMenuSection = ({
         </div>
         <div className='flex items-center gap-2'>
           <span className='text-xs text-slate-400 dark:text-slate-500 font-medium'>
-            {theme === 'dark' ? 'Gelap' : 'Terang'}
+            {cfg.label}
           </span>
           <ChevronRight
             size={16}
@@ -84,6 +109,7 @@ const PreferensiMenuSection = ({
       </button>
     </div>
   </div>
-);
+  );
+};
 
 export default PreferensiMenuSection;
