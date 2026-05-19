@@ -40,11 +40,11 @@ const useNotifications = (mounted, hijriDay, prayerTimes, currentTime) => {
         if (!timeStr) return;
 
         const [h, m] = timeStr.split(':').map(Number);
-        const prayerMoment = dayjs().hour(h).minute(m).second(0);
+        const prayerMoment = currentTime.clone().hour(h).minute(m).second(0);
 
         if (currentTime.isAfter(prayerMoment)) {
           dynamicNotifs.push({
-            id: `prayer_${p.key}_${dayjs().format('YYYYMMDD')}`,
+            id: `prayer_${p.key}_${currentTime.format('YYYYMMDD')}`,
             day: dayNum,
             title: `Waktu ${p.label} Telah Tiba! 🕌`,
             message: `Udah masuk waktu ${p.label} nih! Jangan lupa sholat ya, dan catat di Tracker.`,
@@ -54,7 +54,7 @@ const useNotifications = (mounted, hijriDay, prayerTimes, currentTime) => {
       });
     }
 
-    setNotifications([...dynamicNotifs.reverse(), ...baseNotifs]);
+    setNotifications([...dynamicNotifs.slice().reverse(), ...baseNotifs]);
   }, [mounted, prayerTimes, currentTime.hour(), hijriDay]);
 
   // Cek apakah ada notif baru yang belum dibaca

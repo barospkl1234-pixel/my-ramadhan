@@ -113,12 +113,12 @@ export default function WriteJournal() {
     }
   };
 
-  useEffect(() => { document.title = `${catData?.title || 'Jurnal'} — MyRamadhan`; }, [catData?.title]);
-
   if (!type || !journalPrompts[type]) return null;
 
   const style = catStyles[type] || catStyles.daily;
   const catData = journalPrompts[type];
+
+  useEffect(() => { document.title = `${catData?.title || 'Jurnal'} — MyRamadhan`; }, [catData?.title]);
   const canSave = content.trim().length > 0 && !isSubmitting;
 
   return (

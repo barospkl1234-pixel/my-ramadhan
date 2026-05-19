@@ -29,7 +29,7 @@ const AudioPlayer = ({ currentAyat, label, onPrev, onNext, onClose }) => {
       audioRef.current
         .play()
         .then(() => setIsPlaying(true))
-        .catch(() => {});
+        .catch(() => setIsPlaying(false));
     }
   }, [currentAyat]);
 
@@ -100,7 +100,7 @@ const AudioPlayer = ({ currentAyat, label, onPrev, onNext, onClose }) => {
               className='flex-1 h-1.5 md:h-2 rounded-full accent-primary dark:accent-primary cursor-pointer bg-slate-200 dark:bg-slate-700'
             />
             <span className='text-[10px] md:text-xs tabular-nums text-slate-400 dark:text-slate-500 w-8 md:w-10'>
-              {fmt(duration)}
+              {duration > 0 ? fmt(duration) : '--:--'}
             </span>
           </div>
 

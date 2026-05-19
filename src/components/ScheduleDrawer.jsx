@@ -19,6 +19,7 @@ import {
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
 
+import localforage from 'localforage';
 import useUser from '@/hooks/useUser';
 import useGeolocation from '@/hooks/useGeolocation';
 import { StorageService } from '@/lib/storageService';
@@ -176,13 +177,7 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
         const [h, m] = timeStr.split(':').map(Number);
         const targetTime = dayjs().hour(h).minute(m).second(0);
         if (currentTime.isBefore(targetTime)) {
-          if (item.id === 'Imsak') {
-            if (currentTime.hour() >= 1) {
-              nextScheduleId = item.id;
-            }
-          } else {
-            nextScheduleId = item.id;
-          }
+          nextScheduleId = item.id;
           break;
         }
       }
@@ -451,9 +446,9 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                   <div className='space-y-2.5'>
                     {upcomingSchedules.map((day, index) => (
                       <div
-                        key={index}
-                        className='bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-3 flex items-center justify-between shadow-sm hover:shadow-md transition-all'
-                      >
+                          key={day.isoDate}
+                          className='bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-3 flex items-center justify-between shadow-sm hover:shadow-md transition-all'
+                        >
                         <div className='flex-1'>
                           <p className='text-xs font-bold text-slate-800 dark:text-slate-100'>
                             {dayjs(day.isoDate).format('dddd, DD MMM')}

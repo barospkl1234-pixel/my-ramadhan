@@ -15,6 +15,7 @@ export default function usePrayerTimes() {
       setUserCity(city);
 
       const res = await fetch(`/api/schedule?city=${encodeURIComponent(city)}`);
+      if (!res.ok) throw new Error('Gagal memuat jadwal: ' + res.status);
       const data = await res.json();
       const now = dayjs();
 

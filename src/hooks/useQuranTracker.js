@@ -14,7 +14,7 @@ export const useQuranTracker = (isReadingActive = true) => {
     lastTickRef.current = Date.now();
     timerRef.current = setInterval(() => {
       const now = Date.now();
-      const delta = Math.floor((now - lastTickRef.current) / 1000);
+      const delta = Math.min(Math.floor((now - lastTickRef.current) / 1000), 15);
       if (delta > 0) {
         setSessionDuration((prev) => prev + delta);
 
