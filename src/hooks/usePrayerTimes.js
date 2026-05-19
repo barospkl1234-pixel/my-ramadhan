@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import dayjs from 'dayjs';
 import localforage from 'localforage';
 
 export default function usePrayerTimes() {
@@ -15,10 +16,13 @@ export default function usePrayerTimes() {
 
       const res = await fetch(`/api/schedule?city=${encodeURIComponent(city)}`);
       const data = await res.json();
+      const now = dayjs();
 
-      const todayData = data?.schedule?.[0]?.timings;
-      if (todayData) {
-        setPrayerTimes(todayData);
+      const todayData = data?.schedule?.find((item) =>
+        dayjs(item.isoDate).isSame(now, 'day'),
+      );
+      if (todayData?.timings) {
+        setPrayerTimes(todayData.timings);
       }
     } catch (error) {
       console.error('Gagal memuat jadwal sholat:', error);

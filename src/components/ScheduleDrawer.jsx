@@ -13,11 +13,14 @@ import {
   Sun,
   Sunset,
   CalendarDays,
+  Navigation,
+  Loader2,
 } from 'lucide-react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/id';
 
 import useUser from '@/hooks/useUser';
+import useGeolocation from '@/hooks/useGeolocation';
 import { StorageService } from '@/lib/storageService';
 import { CITIES } from '@/data/cities';
 
@@ -70,10 +73,12 @@ const SCHEDULE_CARDS = [
 
 export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
   const { user, mutateUser } = useUser();
+  const { detectLocation, locating: locatingGps, error: gpsError } = useGeolocation();
   const [selectedCity, setSelectedCity] = useState('Jakarta');
   const [searchTerm, setSearchTerm] = useState('');
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [gpsMessage, setGpsMessage] = useState(null);
 
   const [todaySchedule, setTodaySchedule] = useState(null);
   const [upcomingSchedules, setUpcomingSchedules] = useState([]);
@@ -126,6 +131,16 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
   const filteredCities = CITIES.filter((city) =>
     city.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const handleLocationDetect = async () => {
+    setGpsMessage(null);
+    const city = await detectLocation();
+    if (city) {
+      setSelectedCity(city);
+      fetchSchedule(city);
+      setGpsMessage(`Lokasi terdeteksi: ${city}`);
+    }
+  };
 
   /**
    * Fungsi untuk menyimpan kota baru secara murni lokal menggunakan StorageService
@@ -244,6 +259,37 @@ export default function ScheduleDrawer({ isOpen, onClose, onUpdate }) {
                   />
                 </button>
               </div>
+
+              {/* Deteksi GPS */}
+              <button
+                onClick={handleLocationDetect}
+                disabled={locatingGps}
+                className='w-full flex items-center justify-center gap-2 mb-3 py-2.5 px-4 bg-blue-50 dark:bg-primary-bg border border-blue-200 dark:border-primary/30 rounded-xl text-sm font-semibold text-primary dark:text-primary hover:bg-blue-100 dark:hover:bg-primary-bg/80 transition-all disabled:opacity-50'
+              >
+                {locatingGps ? (
+                  <>
+                    <Loader2 size={16} className='animate-spin' />
+                    Mendeteksi lokasi...
+                  </>
+                ) : (
+                  <>
+                    <Navigation size={16} />
+                    Deteksi Lokasi via GPS
+                  </>
+                )}
+              </button>
+
+              {gpsMessage && (
+                <p className='text-[11px] text-emerald-600 dark:text-emerald-400 font-medium mb-3 text-center'>
+                  {gpsMessage}
+                </p>
+              )}
+
+              {gpsError && (
+                <p className='text-[11px] text-rose-500 dark:text-rose-400 font-medium mb-3 text-center'>
+                  {gpsError}
+                </p>
+              )}
 
               {/* Picker Kota */}
               <AnimatePresence>
